@@ -148,6 +148,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Color Palette Screen'.shpCircleMain.Fill"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Color Palette Screen'.shpCircleMain.Fill",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 6,
+                  "charOffset": 22,
+                  "snippet": {
+                    "text": ".Color"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Fill",
+                "module": "Color Palette Screen",
+                "type": "'Color Palette Screen'.shpCircleMain"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Color"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Color Palette Screen'.shpCircleAlt.Fill"
                 }
               ],

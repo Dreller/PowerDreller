@@ -143,7 +143,7 @@
         shpCircleMain As circle:
             BorderColor: =Color.Black
             BorderThickness: =1
-            Fill: =
+            Fill: =ColorMixer.Colors.main.Color
             FocusedBorderThickness: =1
             Height: =200
             Width: =200
