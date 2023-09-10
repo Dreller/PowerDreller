@@ -91,22 +91,6 @@
         "NameMapSourceSchema": "?"
       },
       "BrightnessLevel_RGBRecord",
-      {
-        "AFDDataSourceName": "",
-        "AutoRuleBindingEnabled": false,
-        "AutoRuleBindingString": "\"Text\"",
-        "InvariantPropertyName": "BuildPaletteColor_HexColorToUse",
-        "IsLockable": false,
-        "NameMapSourceSchema": "?"
-      },
-      {
-        "AFDDataSourceName": "",
-        "AutoRuleBindingEnabled": false,
-        "AutoRuleBindingString": "{SampleStringField: \"SampleText\", SampleNumberField: 10, SampleBooleanField: true}",
-        "InvariantPropertyName": "BuildPaletteColor",
-        "IsLockable": false,
-        "NameMapSourceSchema": "?"
-      },
       "Colors",
       {
         "AFDDataSourceName": "",
@@ -117,7 +101,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638299568073384663",
+    "LastModifiedTimestamp": "638299568137190218",
     "Name": "comColorPalette",
     "Rules": [
       {
@@ -166,12 +150,6 @@
         "Category": "Data",
         "InvariantScript": "{R: 0, G: 0, B: 0}",
         "Property": "BrightnessLevel_RGBRecord",
-        "RuleProviderType": "System"
-      },
-      {
-        "Category": "Data",
-        "InvariantScript": "\"#C3C3C3\"",
-        "Property": "BuildPaletteColor_HexColorToUse",
         "RuleProviderType": "System"
       },
       {
@@ -232,12 +210,6 @@
         "Category": "Behavior",
         "InvariantScript": "// HEX Reference Table\n    Set( ColorMixerHexTable, Table(\n        {Hex: \"1\", Dec: 1},\n        {Hex: \"2\", Dec: 2},\n        {Hex: \"3\", Dec: 3},\n        {Hex: \"4\", Dec: 4},\n        {Hex: \"5\", Dec: 5},\n        {Hex: \"6\", Dec: 6},\n        {Hex: \"7\", Dec: 7},\n        {Hex: \"8\", Dec: 8},\n        {Hex: \"9\", Dec: 9},\n        {Hex: \"A\", Dec: 10},\n        {Hex: \"B\", Dec: 11},\n        {Hex: \"C\", Dec: 12},\n        {Hex: \"D\", Dec: 13},\n        {Hex: \"E\", Dec: 14},\n        {Hex: \"F\", Dec: 15}\n    ) );\n\n// Other References\n    Set( ColorMixerConfig, {\n        Fading: {\n            Alternate: 0.35,\n            Tertiary: -0.27,\n            Back: 0.92\n        },\n        FontColor: {\n            Light: ColorValue( \"#FAFAFA\" ),\n            Dark: ColorValue( \"#141414\" )\n        },\n        Treshold: {\n            LightOrDark: 130\n        }\n    } );\n\n// If we have a HexColorCode, we use it.  If not, we generate a random color.\n    Set( ColorMixerBase, If( IsBlank( HexColorCode ) Or HexColorCode = \"\", Self.RandomHexColor(), HexColorCode ) );\n\n// Establish the Hexadecimal Value for each 4 colors.\n    Set( ColorMixerMainHex, Self.SanitizeHexCode( ColorMixerBase ) );\n    Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );\n    Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );\n    Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );\n\n// Process MAIN Color\n    Set( ColorMixingHex, ColorMixerMainHex );\n    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );\n    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );\n    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, \"dark\", \"light\" ) );\n    Set( ColorMixedMain, \n                    {\n                        Hex: ColorMixingHex,\n                        Dec: ColorMixingDec,\n                        Shade: ColorMixingShadeName,\n                        IsLight: ( ColorMixingShadeName = \"light\" ),\n                        IsDark: ( ColorMixingShadeName = \"dark\" ),\n                        Color: ColorValue( ColorMixingHex ),\n                        Font: ( If( ColorMixingShadeName = \"light\", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )\n                    }\n    );\n\n// Process ALTERNATE Color\n    Set( ColorMixingHex, ColorMixerAltHex );\n    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );\n    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );\n    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, \"dark\", \"light\" ) );\n    Set( ColorMixedAlt, \n                    {\n                        Hex: ColorMixingHex,\n                        Dec: ColorMixingDec,\n                        Shade: ColorMixingShadeName,\n                        IsLight: ( ColorMixingShadeName = \"light\" ),\n                        IsDark: ( ColorMixingShadeName = \"dark\" ),\n                        Color: ColorValue( ColorMixingHex ),\n                        Font: ( If( ColorMixingShadeName = \"light\", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )\n                    }\n    );\n\n// Process TERTIARY Color\n    Set( ColorMixingHex, ColorMixerTerHex );\n    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );\n    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );\n    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, \"dark\", \"light\" ) );\n    Set( ColorMixedTer, \n                    {\n                        Hex: ColorMixingHex,\n                        Dec: ColorMixingDec,\n                        Shade: ColorMixingShadeName,\n                        IsLight: ( ColorMixingShadeName = \"light\" ),\n                        IsDark: ( ColorMixingShadeName = \"dark\" ),\n                        Color: ColorValue( ColorMixingHex ),\n                        Font: ( If( ColorMixingShadeName = \"light\", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )\n                    }\n    );\n\n// Process BACK Color\n    Set( ColorMixingHex, ColorMixerBackHex );\n    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );\n    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );\n    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, \"dark\", \"light\" ) );\n    Set( ColorMixedBack, \n                    {\n                        Hex: ColorMixingHex,\n                        Dec: ColorMixingDec,\n                        Shade: ColorMixingShadeName,\n                        IsLight: ( ColorMixingShadeName = \"light\" ),\n                        IsDark: ( ColorMixingShadeName = \"dark\" ),\n                        Color: ColorValue( ColorMixingHex ),\n                        Font: ( If( ColorMixingShadeName = \"light\", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )\n                    }\n    );\n\n// Build the Palette\n    Set( ColorMixerPalette, {\n        main: ColorMixedMain,\n        alt: ColorMixedAlt,\n        ter: ColorMixedTer,\n        back: ColorMixedBack\n    } );\n\n    Trace( \"Color Palette Created\", TraceSeverity.Information, ColorMixerPalette );\n",
         "Property": "Create",
-        "RuleProviderType": "System"
-      },
-      {
-        "Category": "Behavior",
-        "InvariantScript": "Set( ColorMixingDec, Self.HexToRGB( HexColorToUse ) );\nSet( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );\nSet( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, \"dark\", \"light\" ) );\n\n{\n    Hex: HexColorToUse,\n    Dec: ColorMixingDec,\n    Shade: ColorMixingShadeName,\n    IsLight: ( ColorMixingShadeName = \"light\" ),\n    IsDark: ( ColorMixingShadeName = \"dark\" ),\n    Color: ColorValue( HexColorToUse ),\n    Font: ( If( ColorMixingShadeName = \"light\", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )\n}",
-        "Property": "BuildPaletteColor",
         "RuleProviderType": "System"
       }
     ]
@@ -401,35 +373,6 @@
       "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
-      "Category": 2,
-      "DisplayName": "Build Palette Color",
-      "Hidden": true,
-      "Name": "BuildPaletteColor",
-      "PropertyDataTypeKey": "Record",
-      "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "4",
-        "PropertyScopeRulesKey": [
-          {
-            "DisplayName": "BuildPaletteColor_HexColorToUse",
-            "Name": "BuildPaletteColor_HexColorToUse",
-            "PropertyDataTypeKey": "String",
-            "ScopeVariableInfo": {
-              "DependencyType": "New",
-              "Description": "Hexadecimal Color Code to use.",
-              "IsRequired": true,
-              "ResolveExpands": false,
-              "ResolveSelects": false,
-              "ScopeVariableName": "HexColorToUse"
-            },
-            "Tooltip": "Hexadecimal Color Code to use.",
-            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
-          }
-        ]
-      },
-      "Tooltip": "Build the record for a Color to add to the final Palette.",
-      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"SampleBooleanField\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"SampleNumberField\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"SampleStringField\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
-    },
-    {
       "Category": 0,
       "DisplayName": "Colors",
       "Hidden": true,
@@ -460,7 +403,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638299568073384663",
+  "LastModifiedTimestamp": "638299568137190218",
   "Name": "6ee670762ec946bda43c70b82093dba0",
   "OverridableProperties": {},
   "Version": "638299518756291539"

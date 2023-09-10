@@ -471,22 +471,6 @@
           "NameMapSourceSchema": "?"
         },
         "BrightnessLevel_RGBRecord",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\"Text\"",
-          "InvariantPropertyName": "BuildPaletteColor_HexColorToUse",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "{SampleStringField: \"SampleText\", SampleNumberField: 10, SampleBooleanField: true}",
-          "InvariantPropertyName": "BuildPaletteColor",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
         "Colors",
         {
           "AFDDataSourceName": "",
@@ -528,11 +512,6 @@
         {
           "Category": "Data",
           "PropertyName": "Colors",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "BuildPaletteColor_HexColorToUse",
           "RuleProviderType": "Unknown"
         },
         {
@@ -603,11 +582,6 @@
         {
           "Category": "Design",
           "PropertyName": "Y",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Behavior",
-          "PropertyName": "BuildPaletteColor",
           "RuleProviderType": "Unknown"
         },
         {

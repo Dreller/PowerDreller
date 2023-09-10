@@ -66,20 +66,6 @@
 
     ColorMixer As comColorPalette:
         BrightnessLevel: =Round( Sqrt( (0.241 * RGBRecord.R^2) + (0.691 * RGBRecord.G^2) + (0.068 * RGBRecord.B^2) ), 3 )
-        BuildPaletteColor: |-
-            =Set( ColorMixingDec, Self.HexToRGB( HexColorToUse ) );
-            Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
-            Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
-            
-            {
-                Hex: HexColorToUse,
-                Dec: ColorMixingDec,
-                Shade: ColorMixingShadeName,
-                IsLight: ( ColorMixingShadeName = "light" ),
-                IsDark: ( ColorMixingShadeName = "dark" ),
-                Color: ColorValue( HexColorToUse ),
-                Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
-            }
         Create: |
             =// HEX Reference Table
                 Set( ColorMixerHexTable, Table(
