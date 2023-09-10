@@ -30,7 +30,7 @@
             "ScopeVariableInfo": {
               "DependencyType": "New",
               "Description": "Color Hexadecimal Code.",
-              "IsRequired": true,
+              "IsRequired": false,
               "ResolveExpands": false,
               "ResolveSelects": false,
               "ScopeVariableName": "HexColorCode"
@@ -219,7 +219,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638299552973638029",
+  "LastModifiedTimestamp": "638299553713782293",
   "Name": "6ee670762ec946bda43c70b82093dba0",
   "OverridableProperties": {},
   "Version": "638299518756291539"

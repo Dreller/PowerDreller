@@ -65,8 +65,11 @@ comColorPalette As CanvasComponent:
                         }
                     } );
                 
+                // If we have a HexColorCode, we use it.  If not, we generate a random color.
+                    Set( ColorMixerBase, If( IsBlank( HexColorCode), Self.RandomHexColor() ) );
+                
                 // Establish the Hexadecimal Value for each 4 colors.
-                    Set( ColorMixerMainHex, Self.SanitizeHexCode( HexColorCode ) );
+                    Set( ColorMixerMainHex, Self.SanitizeHexCode( ColorMixerBase ) );
                     Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );
                     Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );
                     Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );

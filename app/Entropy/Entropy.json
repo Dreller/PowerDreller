@@ -14,10 +14,6 @@
       "\"Text\"",
       "\"#C3C3C3\""
     ],
-    "comColorPalette.Create_HexColorCode": [
-      "\"Text\"",
-      "\"#c3c3c3\""
-    ],
     "comColorPalette.HexToRGB_HexToConvert": [
       "\"Text\"",
       "\"#C3C3C3\""
@@ -32,7 +28,7 @@
     ]
   },
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:08:23",
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:09:35",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
