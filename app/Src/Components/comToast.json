@@ -1,0 +1,29 @@
+{
+  "ComponentAllowCustomization": false,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentExtraMetadata": {
+    "ComponentDescription": "Display a temporary Toast Notification."
+  },
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": false,
+    "Description": "Display a temporary Toast Notification.",
+    "Name": "comToast",
+    "TemplateGuid": "5c2561f9453d4ae3bf767ac26e375710"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638299766587662924",
+  "Name": "5c2561f9453d4ae3bf767ac26e375710",
+  "OverridableProperties": {},
+  "Version": "638299766341979553"
+}

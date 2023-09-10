@@ -101,7 +101,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638299576626504091",
+    "LastModifiedTimestamp": "638299766068749554",
     "Name": "comColorPalette",
     "Rules": [
       {
@@ -403,7 +403,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638299576626504091",
+  "LastModifiedTimestamp": "638299766068749554",
   "Name": "6ee670762ec946bda43c70b82093dba0",
   "OverridableProperties": {},
   "Version": "638299518756291539"

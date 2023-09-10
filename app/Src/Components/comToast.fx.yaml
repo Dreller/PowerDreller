@@ -1,0 +1,8 @@
+comToast As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =250
+    Width: =450
+    X: =0
+    Y: =0
+    ZIndex: =1
+
