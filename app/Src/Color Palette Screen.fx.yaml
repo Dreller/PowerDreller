@@ -125,12 +125,80 @@
                 Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );
                 Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );
             
+            // Process MAIN Color
+                Set( ColorMixingHex, ColorMixerMainHex );
+                Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                Set( ColorMixedMain, 
+                                {
+                                    Hex: ColorMixingHex,
+                                    Dec: ColorMixingDec,
+                                    Shade: ColorMixingShadeName,
+                                    IsLight: ( ColorMixingShadeName = "light" ),
+                                    IsDark: ( ColorMixingShadeName = "dark" ),
+                                    Color: ColorValue( ColorMixingHex ),
+                                    Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                }
+                );
+            
+            // Process ALTERNATE Color
+                Set( ColorMixingHex, ColorMixerAltHex );
+                Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                Set( ColorMixedAlt, 
+                                {
+                                    Hex: ColorMixingHex,
+                                    Dec: ColorMixingDec,
+                                    Shade: ColorMixingShadeName,
+                                    IsLight: ( ColorMixingShadeName = "light" ),
+                                    IsDark: ( ColorMixingShadeName = "dark" ),
+                                    Color: ColorValue( ColorMixingHex ),
+                                    Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                }
+                );
+            
+            // Process TERTIARY Color
+                Set( ColorMixingHex, ColorMixerTerHex );
+                Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                Set( ColorMixedTer, 
+                                {
+                                    Hex: ColorMixingHex,
+                                    Dec: ColorMixingDec,
+                                    Shade: ColorMixingShadeName,
+                                    IsLight: ( ColorMixingShadeName = "light" ),
+                                    IsDark: ( ColorMixingShadeName = "dark" ),
+                                    Color: ColorValue( ColorMixingHex ),
+                                    Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                }
+                );
+            
+            // Process BACK Color
+                Set( ColorMixingHex, ColorMixerBackHex );
+                Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                Set( ColorMixedBack, 
+                                {
+                                    Hex: ColorMixingHex,
+                                    Dec: ColorMixingDec,
+                                    Shade: ColorMixingShadeName,
+                                    IsLight: ( ColorMixingShadeName = "light" ),
+                                    IsDark: ( ColorMixingShadeName = "dark" ),
+                                    Color: ColorValue( ColorMixingHex ),
+                                    Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                }
+                );
+            
             // Build the Palette
                 Set( ColorMixerPalette, {
-                    main: Self.BuildPaletteColor( ColorMixerMainHex ),
-                    alt: Self.BuildPaletteColor( ColorMixerAltHex ),
-                    ter: Self.BuildPaletteColor( ColorMixerTerHex ),
-                    back: Self.BuildPaletteColor( ColorMixerBackHex )
+                    main: ColorMixedMain,
+                    alt: ColorMixedAlt,
+                    ter: ColorMixedTer,
+                    back: ColorMixedBack
                 } );
             
                 Trace( "Color Palette Created", TraceSeverity.Information, ColorMixerPalette );
