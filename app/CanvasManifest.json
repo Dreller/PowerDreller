@@ -99,12 +99,12 @@
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "Phone",
-    "DocumentLayoutHeight": 1136,
-    "DocumentLayoutLockOrientation": false,
+    "DocumentLayoutHeight": 640,
+    "DocumentLayoutLockOrientation": true,
     "DocumentLayoutMaintainAspectRatio": true,
-    "DocumentLayoutOrientation": "portrait",
+    "DocumentLayoutOrientation": "landscape",
     "DocumentLayoutScaleToFit": true,
-    "DocumentLayoutWidth": 640,
+    "DocumentLayoutWidth": 1136,
     "DocumentType": "ComponentLibrary",
     "EnableInstrumentation": false,
     "FileID": "58c5d936-fde3-4b86-ba78-96fd2a9a9d59",
@@ -129,6 +129,6 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
-    "Screen1"
+    "Color Palette Screen"
   ]
 }
