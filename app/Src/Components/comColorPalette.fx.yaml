@@ -101,6 +101,7 @@ comColorPalette As CanvasComponent:
         ThisProperty:
             Default: |-
                 ="#" & Left( Upper( Substitute( Substitute( DirtyHexCode, Char(34), "" ), "#", "" ) ), 6 )
+    Colors: =ColorMixerPalette
     Fill: =RGBA(0, 0, 0, 0)
     Height: =100
     Width: =100
