@@ -1,7 +1,7 @@
 {
   "ComponentIndexes": {
-    "comColorPalette": 1,
-    "comToast": 2
+    "comColorPalette": 2,
+    "comToast": 3
   },
   "ControlUniqueGuids": {},
   "ControlUniqueIds": {
@@ -24,6 +24,7 @@
     "lblTextOnAlt": 19,
     "lblTextOnMain": 18,
     "lblTextOnTer": 17,
+    "Screen1": 26,
     "shpCircleAlt": 15,
     "shpCircleMain": 14,
     "shpCircleTer": 16,
@@ -32,7 +33,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 21:49:10",
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 21:49:36",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -96,6 +97,7 @@
     "lblTextOnAlt": {},
     "lblTextOnMain": {},
     "lblTextOnTer": {},
+    "Screen1": {},
     "shpCircleAlt": {},
     "shpCircleMain": {},
     "shpCircleTer": {},
@@ -181,6 +183,7 @@
     "lblTextOnAlt": 13,
     "lblTextOnMain": 12,
     "lblTextOnTer": 11,
+    "Screen1": 0,
     "shpCircleAlt": 9,
     "shpCircleMain": 8,
     "shpCircleTer": 10,

@@ -129,6 +129,7 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
-    "Color Palette Screen"
+    "Color Palette Screen",
+    "Screen1"
   ]
 }
