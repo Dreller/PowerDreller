@@ -279,12 +279,12 @@
     lblColorTertiary As Text:
         Align: ='TextCanvas.Align'.End
         DisplayMode: =DisplayMode.Edit
-        Height: =107
+        Height: =93
         Text: |-
             ="Tertiary Color: " & ColorMixer.Colors.ter.Hex & Char(10) & "RGB: " & ColorMixer.Colors.ter.Dec.R & ", " & ColorMixer.Colors.ter.Dec.G & ", " & ColorMixer.Colors.ter.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.ter.Shade & " Color."
         VerticalAlign: ='TextCanvas.VerticalAlign'.Top
         Width: =185
         X: =41
-        Y: =156
+        Y: =186
         ZIndex: =13
 
