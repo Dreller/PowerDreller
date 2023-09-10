@@ -23,8 +23,15 @@
         "X",
         "Y",
         "ZIndex",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "true",
+          "InvariantPropertyName": "Create",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Create_HexColorCode",
-        "Create",
         "SanitizeHexCode_DirtyHexCode",
         {
           "AFDDataSourceName": "",
@@ -49,11 +56,6 @@
       "Properties": [
         {
           "Category": "Data",
-          "PropertyName": "Create_HexColorCode",
-          "RuleProviderType": "System"
-        },
-        {
-          "Category": "Data",
           "PropertyName": "SanitizeHexCode_DirtyHexCode",
           "RuleProviderType": "System"
         },
@@ -63,29 +65,34 @@
           "RuleProviderType": "System"
         },
         {
+          "Category": "Data",
+          "PropertyName": "Create_HexColorCode",
+          "RuleProviderType": "System"
+        },
+        {
           "Category": "Design",
           "PropertyName": "ZIndex",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
           "PropertyName": "Y",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
           "PropertyName": "X",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
           "PropertyName": "Height",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",

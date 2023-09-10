@@ -19,7 +19,7 @@
       "DisplayName": "Create",
       "Hidden": true,
       "Name": "Create",
-      "PropertyDataTypeKey": "Record",
+      "PropertyDataTypeKey": "Boolean",
       "PropertyScopeKey": {
         "PropertyScopeRuleNamespaceKey": "4",
         "PropertyScopeRulesKey": [
@@ -41,7 +41,7 @@
         ]
       },
       "Tooltip": "Create (Initialize) the Color Palette.",
-      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"SampleBooleanField\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"SampleNumberField\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"SampleStringField\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -81,7 +81,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638299526846159967",
+  "LastModifiedTimestamp": "638299528490264001",
   "Name": "6ee670762ec946bda43c70b82093dba0",
   "OverridableProperties": {},
   "Version": "638299518756291539"

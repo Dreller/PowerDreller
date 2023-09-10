@@ -3,8 +3,36 @@ comColorPalette As CanvasComponent:
         HexColorCode:
             Default: ="Text"
         ThisProperty:
-            Default: |-
-                ={SampleStringField: "SampleText", SampleNumberField: 10, SampleBooleanField: true}
+            Default: |+
+                =// HEX Reference Table
+                    Set( ColorMixerHexTable, Table(
+                        {Hex: "1", Dec: 1},
+                        {Hex: "2", Dec: 2},
+                        {Hex: "3", Dec: 3},
+                        {Hex: "4", Dec: 4},
+                        {Hex: "5", Dec: 5},
+                        {Hex: "6", Dec: 6},
+                        {Hex: "7", Dec: 7},
+                        {Hex: "8", Dec: 8},
+                        {Hex: "9", Dec: 9},
+                        {Hex: "A", Dec: 10},
+                        {Hex: "B", Dec: 11},
+                        {Hex: "C", Dec: 12},
+                        {Hex: "D", Dec: 13},
+                        {Hex: "E", Dec: 14},
+                        {Hex: "F", Dec: 15}
+                    ) );
+                
+                // Other References
+                    Set( ColorMixerConfig, {
+                        AlternatePercent: 0.35,
+                        TertiaryPercent: -0.27,
+                        BackPercent: 0.92,
+                        FontLight: ColorValue( "#FAFAFA" ),
+                        FontDark: ColorValue( "#141414" ),
+                        ShareTreshold: 130
+                    } );
+                
     SanitizeHexCode(DirtyHexCode As String):
         DirtyHexCode:
             Default: ="Text"
