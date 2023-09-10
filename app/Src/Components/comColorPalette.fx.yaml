@@ -44,6 +44,11 @@ comColorPalette As CanvasComponent:
                     Set( ColorMixerAltHex, JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) );
                     Set( ColorMixerTerHex, JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) );
                     Set( ColorMixerBackHex, JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) );
+    PrimaryHexToDec(PrimaryHexCode As String):
+        PrimaryHexCode:
+            Default: ="Text"
+        ThisProperty:
+            Default: =( LookUp( ColorMixerHexTable, Hex = Left( PrimaryHexCode, 1 ) ).Dec * 16 ) + LookUp( ColorMixerHexTable, Hex = Right( PrimaryHexCode, 1 ) ).Dec
     SanitizeHexCode(DirtyHexCode As String):
         DirtyHexCode:
             Default: ="Text"

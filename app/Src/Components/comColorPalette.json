@@ -71,6 +71,35 @@
       },
       "Tooltip": "Clean an Hex Color Code to have a standard value.",
       "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Primary Hex to Dec",
+      "Hidden": true,
+      "Name": "PrimaryHexToDec",
+      "PropertyDataTypeKey": "Number",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "PrimaryHexToDec_PrimaryHexCode",
+            "Name": "PrimaryHexToDec_PrimaryHexCode",
+            "PropertyDataTypeKey": "String",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "2-Characters Hexadecimal Primary (R, G, B) Color Code.",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "PrimaryHexCode"
+            },
+            "Tooltip": "2-Characters Hexadecimal Primary (R, G, B) Color Code.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "Primary (R, G, B) Hex Code to Dec Value.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -81,7 +110,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638299533498233797",
+  "LastModifiedTimestamp": "638299535374625511",
   "Name": "6ee670762ec946bda43c70b82093dba0",
   "OverridableProperties": {},
   "Version": "638299518756291539"

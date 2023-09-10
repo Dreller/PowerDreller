@@ -111,36 +111,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "comColorPalette.ColorMixerHexTable"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "comColorPalette.ColorMixerHexTable",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "ColorMixerHexTable",
-                "module": "comColorPalette",
-                "type": "comColorPalette"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "comColorPalette.ColorMixerTerHex"
                 }
               ],
