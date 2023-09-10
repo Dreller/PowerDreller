@@ -1,4 +1,5 @@
 "'Color Palette Screen' As screen":
+    OnVisible: =Set( ColorMixerColorCode, Blank() );
 
     htmColorMixerJSON As htmlViewer:
         Color: =ColorMixer.Colors.back.Font
@@ -11,16 +12,53 @@
         Y: =15
         ZIndex: =1
 
+    btnColorMixerRandom As button:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =1
+        Color: =RGBA(26, 26, 26, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =1
+        Height: =41
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Set( PaletteAsJSON, Blank() );
+            ColorMixer.Create( Blank() );
+            Set( PaletteAsJSON, JSON( ColorMixer.Colors, JSONFormat.IndentFour ) );
+            Set( ColorMixerColorCode, ColorMixer.Colors.main.Hex );
+            Reset( txtColorMixerCode );
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =2
+        RadiusBottomRight: =2
+        RadiusTopLeft: =2
+        RadiusTopRight: =2
+        Size: =14
+        Text: ="Mix Random!"
+        Width: =138
+        X: =410
+        Y: =49
+        ZIndex: =13
+
     btnColorMixer As button:
         BorderColor: =RGBA(116, 116, 116, 1)
         BorderThickness: =1
         Color: =RGBA(26, 26, 26, 1)
         Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =1
         Height: =41
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
         OnSelect: |-
             =Set( PaletteAsJSON, Blank() );
             ColorMixer.Create( txtColorMixerCode.Text );
             Set( PaletteAsJSON, JSON( ColorMixer.Colors, JSONFormat.IndentFour ) );
+            Set( ColorMixerColorCode, ColorMixer.Colors.main.Hex );
+            Reset( txtColorMixerCode );
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
         RadiusBottomLeft: =2
         RadiusBottomRight: =2
         RadiusTopLeft: =2
@@ -30,13 +68,13 @@
         Width: =138
         X: =263
         Y: =49
-        ZIndex: =2
+        ZIndex: =14
 
     txtColorMixerCode As text:
         BorderColor: =RGBA(149, 149, 149, 1)
         BorderThickness: =1
         Color: =RGBA(26, 26, 26, 1)
-        Default: =""
+        Default: =ColorMixerColorCode
         FocusedBorderThickness: =1
         Height: =52
         HintText: |-
@@ -49,7 +87,7 @@
         Width: =223
         X: =28
         Y: =44
-        ZIndex: =3
+        ZIndex: =15
 
     lblColorMixerCode As label:
         Color: =RGBA(26, 26, 26, 1)
@@ -60,7 +98,7 @@
         Width: =196
         X: =28
         Y: =15
-        ZIndex: =4
+        ZIndex: =16
 
     ColorMixer As comColorPalette:
         BrightnessLevel: =Round( Sqrt( (0.241 * RGBRecord.R^2) + (0.691 * RGBRecord.G^2) + (0.068 * RGBRecord.B^2) ), 3 )
@@ -197,94 +235,134 @@
             ="#" & Left( Upper( Substitute( Substitute( DirtyHexCode, Char(34), "" ), "#", "" ) ), 6 )
         X: =8
         Y: =532
-        ZIndex: =5
+        ZIndex: =17
 
-    shpColorBack As rectangle:
-        BorderColor: =Color.Black
-        BorderThickness: =1
-        Fill: =ColorMixer.Colors.back.Color
-        FocusedBorderThickness: =1
-        X: =306
-        Y: =372
-        ZIndex: =6
+    groupColorMixerVisual As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
 
-    shpCircleMain As circle:
-        BorderColor: =Color.Black
-        BorderThickness: =1
-        Fill: =ColorMixer.Colors.main.Color
-        FocusedBorderThickness: =1
-        Height: =200
-        Width: =200
-        X: =224
-        Y: =215
-        ZIndex: =7
+        shpColorBack As rectangle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =ColorMixer.Colors.back.Color
+            FocusedBorderThickness: =1
+            X: =306
+            Y: =372
+            ZIndex: =2
 
-    shpCircleAlt As partialCircle:
-        BorderColor: =Color.Black
-        BorderThickness: =1
-        Fill: =ColorMixer.Colors.alt.Color
-        FocusedBorderThickness: =1
-        Height: =200
-        Width: =200
-        X: =224
-        Y: =215
-        ZIndex: =8
+        shpCircleMain As circle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =ColorMixer.Colors.main.Color
+            FocusedBorderThickness: =1
+            Height: =200
+            Width: =200
+            X: =224
+            Y: =215
+            ZIndex: =3
 
-    shpCircleTer As partialCircle.quarterCircle:
-        BorderColor: =Color.Black
-        BorderThickness: =1
-        Fill: =ColorMixer.Colors.ter.Color
-        FocusedBorderThickness: =1
-        Height: =200
-        Tooltip: ="Tertiary (Ter) Color"
-        Width: =200
-        X: =224
-        Y: =215
-        ZIndex: =9
+        shpCircleAlt As partialCircle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =ColorMixer.Colors.alt.Color
+            FocusedBorderThickness: =1
+            Height: =200
+            Width: =200
+            X: =224
+            Y: =215
+            ZIndex: =4
 
-    lblColorMain As Text:
-        DisplayMode: =DisplayMode.Edit
-        Height: =88
-        Text: |-
-            ="Main Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B & Char(10)  & "This is a " & ColorMixer.Colors.main.Shade & " Color."
-        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
-        Width: =181
-        X: =424
-        Y: =190
-        ZIndex: =10
+        shpCircleTer As partialCircle.quarterCircle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =ColorMixer.Colors.ter.Color
+            FocusedBorderThickness: =1
+            Height: =200
+            Tooltip: ="Tertiary (Ter) Color"
+            Width: =200
+            X: =224
+            Y: =215
+            ZIndex: =5
 
-    lblColorMain_1 As Text:
-        DisplayMode: =DisplayMode.Edit
-        Height: =88
-        Text: |-
-            ="Background Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.main.Shade & " Color."
-        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
-        Width: =201
-        X: =401
-        Y: =486
-        ZIndex: =11
+        lblColorMain As Text:
+            DisplayMode: =DisplayMode.Edit
+            Height: =88
+            Text: |-
+                ="Main Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B & Char(10)  & "This is a " & ColorMixer.Colors.main.Shade & " Color."
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Width: =181
+            X: =424
+            Y: =190
+            ZIndex: =6
 
-    lblColorAlternate As Text:
-        Align: ='TextCanvas.Align'.End
-        DisplayMode: =DisplayMode.Edit
-        Height: =110
-        Text: |-
-            ="Alternate Color: " & ColorMixer.Colors.alt.Hex & Char(10) & "RGB: " & ColorMixer.Colors.alt.Dec.R & ", " & ColorMixer.Colors.alt.Dec.G & ", " & ColorMixer.Colors.alt.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.alt.Shade & " Color."
-        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
-        Width: =212
-        X: =28
-        Y: =376
-        ZIndex: =12
+        lblColorMain_1 As Text:
+            DisplayMode: =DisplayMode.Edit
+            Height: =88
+            Text: |-
+                ="Background Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.main.Shade & " Color."
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Width: =201
+            X: =401
+            Y: =486
+            ZIndex: =7
 
-    lblColorTertiary As Text:
-        Align: ='TextCanvas.Align'.End
-        DisplayMode: =DisplayMode.Edit
-        Height: =93
-        Text: |-
-            ="Tertiary Color: " & ColorMixer.Colors.ter.Hex & Char(10) & "RGB: " & ColorMixer.Colors.ter.Dec.R & ", " & ColorMixer.Colors.ter.Dec.G & ", " & ColorMixer.Colors.ter.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.ter.Shade & " Color."
-        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
-        Width: =185
-        X: =41
-        Y: =186
-        ZIndex: =13
+        lblColorAlternate As Text:
+            Align: ='TextCanvas.Align'.End
+            DisplayMode: =DisplayMode.Edit
+            Height: =110
+            Text: |-
+                ="Alternate Color: " & ColorMixer.Colors.alt.Hex & Char(10) & "RGB: " & ColorMixer.Colors.alt.Dec.R & ", " & ColorMixer.Colors.alt.Dec.G & ", " & ColorMixer.Colors.alt.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.alt.Shade & " Color."
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Width: =212
+            X: =28
+            Y: =376
+            ZIndex: =8
+
+        lblColorTertiary As Text:
+            Align: ='TextCanvas.Align'.End
+            DisplayMode: =DisplayMode.Edit
+            Height: =93
+            Text: |-
+                ="Tertiary Color: " & ColorMixer.Colors.ter.Hex & Char(10) & "RGB: " & ColorMixer.Colors.ter.Dec.R & ", " & ColorMixer.Colors.ter.Dec.G & ", " & ColorMixer.Colors.ter.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.ter.Shade & " Color."
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Width: =185
+            X: =41
+            Y: =186
+            ZIndex: =9
+
+        lblTextOnMain As label:
+            Color: =ColorMixer.Colors.main.Font
+            Font: =Font.Georgia
+            LineHeight: =1
+            Size: =11
+            Text: ="Text Color"
+            Width: =89
+            X: =335
+            Y: =294
+            ZIndex: =10
+
+        lblTextOnAlt As label:
+            Color: =ColorMixer.Colors.alt.Font
+            Font: =Font.Georgia
+            LineHeight: =1
+            Size: =11
+            Text: ="Text Color"
+            Width: =89
+            X: =240
+            Y: =332
+            ZIndex: =11
+
+        lblTextOnTer As label:
+            Color: =ColorMixer.Colors.ter.Font
+            Font: =Font.Georgia
+            LineHeight: =1
+            Size: =11
+            Text: ="Text Color"
+            Width: =89
+            X: =235
+            Y: =268
+            ZIndex: =12
 
