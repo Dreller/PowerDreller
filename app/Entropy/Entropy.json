@@ -6,27 +6,27 @@
   "ControlUniqueGuids": {},
   "ControlUniqueIds": {
     "App": 1,
-    "btnColorMixer": 8,
-    "btnColorMixerRandom": 25,
+    "btnColorMixer": 9,
+    "btnColorMixerRandom": 10,
     "Color Palette Screen": 5,
-    "ColorMixer": 9,
+    "ColorMixer": 22,
     "comColorPalette": 4,
-    "groupColorMixerVisual": 29,
+    "groupColorMixerVisual": 23,
     "Host": 3,
-    "htmColorMixerJSON": 15,
-    "lblColorAlternate": 23,
-    "lblColorBack": 22,
-    "lblColorMain": 21,
+    "htmColorMixerJSON": 7,
+    "lblColorAlternate": 20,
+    "lblColorBack": 21,
+    "lblColorMain": 12,
     "lblColorMixerCode": 6,
-    "lblColorTertiary": 24,
-    "lblTextOnAlt": 27,
-    "lblTextOnMain": 26,
-    "lblTextOnTer": 28,
-    "shpCircleAlt": 18,
-    "shpCircleMain": 17,
-    "shpCircleTer": 19,
-    "shpColorBack": 16,
-    "txtColorMixerCode": 7
+    "lblColorTertiary": 11,
+    "lblTextOnAlt": 18,
+    "lblTextOnMain": 17,
+    "lblTextOnTer": 16,
+    "shpCircleAlt": 14,
+    "shpCircleMain": 13,
+    "shpCircleTer": 15,
+    "shpColorBack": 19,
+    "txtColorMixerCode": 8
   },
   "FunctionParamsInvariantScripts": {
     "comColorPalette.HexToRGB_HexToConvert": [
@@ -56,7 +56,7 @@
       "\"#c3c3c3ff\""
     ]
   },
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:46:50",
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:48:35",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -209,19 +209,21 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.0856393,
+    "AnalysisLoadTime": 0.2260123,
     "ControlCount": {
       "6ee670762ec946bda43c70b82093dba0": 2,
-      "button": 1,
-      "circle": 2,
-      "group": 2,
+      "button": 2,
+      "circle": 1,
+      "group": 1,
+      "htmlViewer": 1,
       "label": 4,
-      "partialCircle": 4,
+      "partialCircle": 2,
       "PowerApps_CoreControls_TextCanvas": 4,
       "rectangle": 1,
-      "screen": 1
+      "screen": 1,
+      "text": 1
     },
-    "DeserializationLoadTime": 1.5202452
+    "DeserializationLoadTime": 2.0841103
   },
   "WasLocalDatabaseReferencesEmpty": true
 }
