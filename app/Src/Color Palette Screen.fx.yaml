@@ -180,14 +180,12 @@
                 );
             
             // Build the Palette
-                Set( ColorMixerPalette, {
+                Set( ColorMixedPalette, {
                     main: ColorMixedMain,
                     alt: ColorMixedAlt,
                     ter: ColorMixedTer,
                     back: ColorMixedBack
                 } );
-            
-                Trace( "Color Palette Created", TraceSeverity.Information, ColorMixerPalette );
         HexToRGB: |-
             ={
                 R: Self.PrimaryHexToDec( Mid( HexToConvert, 2, 2 ) ),

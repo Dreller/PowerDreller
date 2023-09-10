@@ -124,14 +124,12 @@ comColorPalette As CanvasComponent:
                     );
                 
                 // Build the Palette
-                    Set( ColorMixerPalette, {
+                    Set( ColorMixedPalette, {
                         main: ColorMixedMain,
                         alt: ColorMixedAlt,
                         ter: ColorMixedTer,
                         back: ColorMixedBack
                     } );
-                
-                    Trace( "Color Palette Created", TraceSeverity.Information, ColorMixerPalette );
     HexToRGB(HexToConvert As String):
         HexToConvert:
             Default: |-
@@ -159,7 +157,7 @@ comColorPalette As CanvasComponent:
         ThisProperty:
             Default: |-
                 ="#" & Left( Upper( Substitute( Substitute( DirtyHexCode, Char(34), "" ), "#", "" ) ), 6 )
-    Colors: =ColorMixerPalette
+    Colors: =ColorMixedPalette
     Fill: =RGBA(0, 0, 0, 0)
     Height: =100
     Width: =100

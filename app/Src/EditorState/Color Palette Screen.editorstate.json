@@ -512,7 +512,7 @@
         {
           "Category": "Data",
           "PropertyName": "Colors",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Data",
