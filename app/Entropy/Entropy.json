@@ -9,9 +9,26 @@
     "Host": 3,
     "Screen1": 5
   },
-  "FunctionParamsInvariantScripts": {},
+  "FunctionParamsInvariantScripts": {
+    "comColorPalette.Create_HexColorCode": [
+      "\"Text\"",
+      "\"#c3c3c3\""
+    ],
+    "comColorPalette.HexToRGB_HexToConvert": [
+      "\"Text\"",
+      "\"#C3C3C3\""
+    ],
+    "comColorPalette.PrimaryHexToDec_PrimaryHexCode": [
+      "\"Text\"",
+      "\"C3\""
+    ],
+    "comColorPalette.SanitizeHexCode_DirtyHexCode": [
+      "\"Text\"",
+      "\"#c3c3c3ff\""
+    ]
+  },
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 14:43:13",
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 14:45:28",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,

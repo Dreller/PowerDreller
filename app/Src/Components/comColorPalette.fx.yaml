@@ -1,7 +1,14 @@
 comColorPalette As CanvasComponent:
+    BrightnessLevel(RGBRecord As Record):
+        RGBRecord:
+            Default: |-
+                ={R: 0, G: 0, B: 0}
+        ThisProperty:
+            Default: =Round( Sqrt( (0.241 * RGBRecord.R^2) + (0.691 * RGBRecord.G^2) + (0.068 * RGBRecord.B^2) ), 3 )
     Create(HexColorCode As String):
         HexColorCode:
-            Default: ="Text"
+            Default: |-
+                ="#c3c3c3"
         ThisProperty:
             Default: |
                 =// HEX Reference Table
@@ -46,7 +53,8 @@ comColorPalette As CanvasComponent:
                     Set( ColorMixerBackHex, JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) );
     HexToRGB(HexToConvert As String):
         HexToConvert:
-            Default: ="Text"
+            Default: |-
+                ="#C3C3C3"
         ThisProperty:
             Default: |-
                 ={
@@ -56,12 +64,13 @@ comColorPalette As CanvasComponent:
                 }
     PrimaryHexToDec(PrimaryHexCode As String):
         PrimaryHexCode:
-            Default: ="Text"
+            Default: ="C3"
         ThisProperty:
             Default: =( LookUp( ColorMixerHexTable, Hex = Left( PrimaryHexCode, 1 ) ).Dec * 16 ) + LookUp( ColorMixerHexTable, Hex = Right( PrimaryHexCode, 1 ) ).Dec
     SanitizeHexCode(DirtyHexCode As String):
         DirtyHexCode:
-            Default: ="Text"
+            Default: |-
+                ="#c3c3c3ff"
         ThisProperty:
             Default: |-
                 ="#" & Left( Upper( Substitute( Substitute( DirtyHexCode, Char(34), "" ), "#", "" ) ), 6 )
