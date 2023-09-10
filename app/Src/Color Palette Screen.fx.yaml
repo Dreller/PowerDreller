@@ -298,11 +298,11 @@
             Y: =190
             ZIndex: =6
 
-        lblColorMain_1 As Text:
+        lblColorBack As Text:
             DisplayMode: =DisplayMode.Edit
             Height: =88
             Text: |-
-                ="Background Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.main.Shade & " Color."
+                ="Background Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B
             VerticalAlign: ='TextCanvas.VerticalAlign'.Top
             Width: =201
             X: =401
