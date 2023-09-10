@@ -1,0 +1,380 @@
+"'Color Palette Screen' As screen":
+    OnVisible: =Set( ColorMixerColorCode, Blank() );
+
+    htmColorMixerJSON As htmlViewer:
+        Color: =ColorMixer.Colors.back.Font
+        Fill: =ColorMixer.Colors.back.Color
+        Height: =618
+        HtmlText: ="<pre>" & PaletteAsJSON & "</pre>"
+        Size: =9
+        Visible: =groupColorMixerVisual.Visible
+        Width: =412
+        X: =708
+        Y: =15
+        ZIndex: =1
+
+    btnColorMixerRandom As button:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =1
+        Color: =RGBA(26, 26, 26, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =1
+        Height: =41
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Set( PaletteAsJSON, Blank() );
+            ColorMixer.Create( Blank() );
+            Set( PaletteAsJSON, JSON( ColorMixer.Colors, JSONFormat.IndentFour ) );
+            Set( ColorMixerColorCode, ColorMixer.Colors.main.Hex );
+            Reset( txtColorMixerCode );
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =2
+        RadiusBottomRight: =2
+        RadiusTopLeft: =2
+        RadiusTopRight: =2
+        Size: =14
+        Text: ="Mix Random!"
+        Width: =138
+        X: =410
+        Y: =49
+        ZIndex: =13
+
+    btnColorMixer As button:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =1
+        Color: =RGBA(26, 26, 26, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =1
+        Height: =41
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Set( PaletteAsJSON, Blank() );
+            ColorMixer.Create( txtColorMixerCode.Text );
+            Set( PaletteAsJSON, JSON( ColorMixer.Colors, JSONFormat.IndentFour ) );
+            Set( ColorMixerColorCode, ColorMixer.Colors.main.Hex );
+            Reset( txtColorMixerCode );
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =2
+        RadiusBottomRight: =2
+        RadiusTopLeft: =2
+        RadiusTopRight: =2
+        Size: =14
+        Text: ="Mix Colors!"
+        Width: =138
+        X: =263
+        Y: =49
+        ZIndex: =14
+
+    txtColorMixerCode As text:
+        BorderColor: =RGBA(149, 149, 149, 1)
+        BorderThickness: =1
+        Color: =RGBA(26, 26, 26, 1)
+        Default: =ColorMixerColorCode
+        FocusedBorderThickness: =1
+        Height: =52
+        HintText: |-
+            ="#3d297c"
+        RadiusBottomLeft: =2
+        RadiusBottomRight: =2
+        RadiusTopLeft: =2
+        RadiusTopRight: =2
+        Size: =16
+        Width: =223
+        X: =28
+        Y: =44
+        ZIndex: =15
+
+    lblColorMixerCode As label:
+        Color: =RGBA(26, 26, 26, 1)
+        Height: =29
+        Size: =14
+        Text: |-
+            ="Enter a HEX Color:"
+        Width: =196
+        X: =28
+        Y: =15
+        ZIndex: =16
+
+    ColorMixer As comColorPalette:
+        BrightnessLevel: =Round( Sqrt( (0.241 * RGBRecord.R^2) + (0.691 * RGBRecord.G^2) + (0.068 * RGBRecord.B^2) ), 3 )
+        Create: |
+            =// HEX Reference Table
+                Set( ColorMixerHexTable, Table(
+                    {Hex: "1", Dec: 1},
+                    {Hex: "2", Dec: 2},
+                    {Hex: "3", Dec: 3},
+                    {Hex: "4", Dec: 4},
+                    {Hex: "5", Dec: 5},
+                    {Hex: "6", Dec: 6},
+                    {Hex: "7", Dec: 7},
+                    {Hex: "8", Dec: 8},
+                    {Hex: "9", Dec: 9},
+                    {Hex: "A", Dec: 10},
+                    {Hex: "B", Dec: 11},
+                    {Hex: "C", Dec: 12},
+                    {Hex: "D", Dec: 13},
+                    {Hex: "E", Dec: 14},
+                    {Hex: "F", Dec: 15}
+                ) );
+            
+            // Other References
+                Set( ColorMixerConfig, {
+                    Fading: {
+                        Alternate: 0.35,
+                        Tertiary: -0.27,
+                        Back: 0.92
+                    },
+                    FontColor: {
+                        Light: ColorValue( "#FAFAFA" ),
+                        Dark: ColorValue( "#141414" )
+                    },
+                    Treshold: {
+                        LightOrDark: 130
+                    }
+                } );
+            
+            // If we have a HexColorCode, we use it.  If not, we generate a random color.
+                Set( ColorMixerBase, If( IsBlank( HexColorCode ) Or HexColorCode = "", Self.RandomHexColor(), HexColorCode ) );
+            
+            // Establish the Hexadecimal Value for each 4 colors.
+                Set( ColorMixerMainHex, Self.SanitizeHexCode( ColorMixerBase ) );
+                Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );
+                Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );
+                Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );
+            
+            // Process MAIN Color
+                Set( ColorMixingHex, ColorMixerMainHex );
+                Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                Set( ColorMixedMain, 
+                                {
+                                    Hex: ColorMixingHex,
+                                    Dec: ColorMixingDec,
+                                    Shade: ColorMixingShadeName,
+                                    IsLight: ( ColorMixingShadeName = "light" ),
+                                    IsDark: ( ColorMixingShadeName = "dark" ),
+                                    Color: ColorValue( ColorMixingHex ),
+                                    Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                }
+                );
+            
+            // Process ALTERNATE Color
+                Set( ColorMixingHex, ColorMixerAltHex );
+                Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                Set( ColorMixedAlt, 
+                                {
+                                    Hex: ColorMixingHex,
+                                    Dec: ColorMixingDec,
+                                    Shade: ColorMixingShadeName,
+                                    IsLight: ( ColorMixingShadeName = "light" ),
+                                    IsDark: ( ColorMixingShadeName = "dark" ),
+                                    Color: ColorValue( ColorMixingHex ),
+                                    Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                }
+                );
+            
+            // Process TERTIARY Color
+                Set( ColorMixingHex, ColorMixerTerHex );
+                Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                Set( ColorMixedTer, 
+                                {
+                                    Hex: ColorMixingHex,
+                                    Dec: ColorMixingDec,
+                                    Shade: ColorMixingShadeName,
+                                    IsLight: ( ColorMixingShadeName = "light" ),
+                                    IsDark: ( ColorMixingShadeName = "dark" ),
+                                    Color: ColorValue( ColorMixingHex ),
+                                    Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                }
+                );
+            
+            // Process BACK Color
+                Set( ColorMixingHex, ColorMixerBackHex );
+                Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                Set( ColorMixedBack, 
+                                {
+                                    Hex: ColorMixingHex,
+                                    Dec: ColorMixingDec,
+                                    Shade: ColorMixingShadeName,
+                                    IsLight: ( ColorMixingShadeName = "light" ),
+                                    IsDark: ( ColorMixingShadeName = "dark" ),
+                                    Color: ColorValue( ColorMixingHex ),
+                                    Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                }
+                );
+            
+            // Build the Palette
+                Set( ColorMixedPalette, {
+                    main: ColorMixedMain,
+                    alt: ColorMixedAlt,
+                    ter: ColorMixedTer,
+                    back: ColorMixedBack
+                } );
+        HexToRGB: |-
+            ={
+                R: Self.PrimaryHexToDec( Mid( HexToConvert, 2, 2 ) ),
+                G: Self.PrimaryHexToDec( Mid( HexToConvert, 4, 2 ) ),
+                B: Self.PrimaryHexToDec( Mid( HexToConvert, 6, 2 ) )
+            }
+        PrimaryHexToDec: =( LookUp( ColorMixerHexTable, Hex = Left( PrimaryHexCode, 1 ) ).Dec * 16 ) + LookUp( ColorMixerHexTable, Hex = Right( PrimaryHexCode, 1 ) ).Dec
+        RandomHexColor: |-
+            ="#" & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex
+        SanitizeHexCode: |-
+            ="#" & Left( Upper( Substitute( Substitute( DirtyHexCode, Char(34), "" ), "#", "" ) ), 6 )
+        X: =8
+        Y: =532
+        ZIndex: =17
+
+    groupColorMixerVisual As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        shpColorBack As rectangle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =ColorMixer.Colors.back.Color
+            FocusedBorderThickness: =1
+            Visible: =!IsBlank( ColorMixer.Colors )
+            X: =306
+            Y: =372
+            ZIndex: =2
+
+        shpCircleMain As circle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =ColorMixer.Colors.main.Color
+            FocusedBorderThickness: =1
+            Height: =200
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =200
+            X: =224
+            Y: =215
+            ZIndex: =3
+
+        shpCircleAlt As partialCircle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =ColorMixer.Colors.alt.Color
+            FocusedBorderThickness: =1
+            Height: =200
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =200
+            X: =224
+            Y: =215
+            ZIndex: =4
+
+        shpCircleTer As partialCircle.quarterCircle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =ColorMixer.Colors.ter.Color
+            FocusedBorderThickness: =1
+            Height: =200
+            Tooltip: ="Tertiary (Ter) Color"
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =200
+            X: =224
+            Y: =215
+            ZIndex: =5
+
+        lblColorMain As Text:
+            DisplayMode: =DisplayMode.Edit
+            Height: =88
+            Text: |-
+                ="Main Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B & Char(10)  & "This is a " & ColorMixer.Colors.main.Shade & " Color."
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =181
+            X: =424
+            Y: =190
+            ZIndex: =6
+
+        lblColorBack As Text:
+            DisplayMode: =DisplayMode.Edit
+            Height: =88
+            Text: |-
+                ="Background Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =201
+            X: =401
+            Y: =486
+            ZIndex: =7
+
+        lblColorAlternate As Text:
+            Align: ='TextCanvas.Align'.End
+            DisplayMode: =DisplayMode.Edit
+            Height: =110
+            Text: |-
+                ="Alternate Color: " & ColorMixer.Colors.alt.Hex & Char(10) & "RGB: " & ColorMixer.Colors.alt.Dec.R & ", " & ColorMixer.Colors.alt.Dec.G & ", " & ColorMixer.Colors.alt.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.alt.Shade & " Color."
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =212
+            X: =28
+            Y: =376
+            ZIndex: =8
+
+        lblColorTertiary As Text:
+            Align: ='TextCanvas.Align'.End
+            DisplayMode: =DisplayMode.Edit
+            Height: =93
+            Text: |-
+                ="Tertiary Color: " & ColorMixer.Colors.ter.Hex & Char(10) & "RGB: " & ColorMixer.Colors.ter.Dec.R & ", " & ColorMixer.Colors.ter.Dec.G & ", " & ColorMixer.Colors.ter.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.ter.Shade & " Color."
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =185
+            X: =41
+            Y: =186
+            ZIndex: =9
+
+        lblTextOnMain As label:
+            Color: =ColorMixer.Colors.main.Font
+            Font: =Font.Georgia
+            LineHeight: =1
+            Size: =11
+            Text: ="Text Color"
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =89
+            X: =335
+            Y: =294
+            ZIndex: =10
+
+        lblTextOnAlt As label:
+            Color: =ColorMixer.Colors.alt.Font
+            Font: =Font.Georgia
+            LineHeight: =1
+            Size: =11
+            Text: ="Text Color"
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =89
+            X: =240
+            Y: =332
+            ZIndex: =11
+
+        lblTextOnTer As label:
+            Color: =ColorMixer.Colors.ter.Font
+            Font: =Font.Georgia
+            LineHeight: =1
+            Size: =11
+            Text: ="Text Color"
+            Visible: =!IsBlank( ColorMixer.Colors )
+            Width: =89
+            X: =235
+            Y: =268
+            ZIndex: =12
+

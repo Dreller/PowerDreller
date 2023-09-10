@@ -1,0 +1,167 @@
+comColorPalette As CanvasComponent:
+    BrightnessLevel(RGBRecord As Record):
+        RGBRecord:
+            Default: |-
+                ={R: 0, G: 0, B: 0}
+        ThisProperty:
+            Default: =Round( Sqrt( (0.241 * RGBRecord.R^2) + (0.691 * RGBRecord.G^2) + (0.068 * RGBRecord.B^2) ), 3 )
+    Create(HexColorCode As String):
+        HexColorCode:
+            Default: |-
+                ="#c3c3c3"
+        ThisProperty:
+            Default: |
+                =// HEX Reference Table
+                    Set( ColorMixerHexTable, Table(
+                        {Hex: "1", Dec: 1},
+                        {Hex: "2", Dec: 2},
+                        {Hex: "3", Dec: 3},
+                        {Hex: "4", Dec: 4},
+                        {Hex: "5", Dec: 5},
+                        {Hex: "6", Dec: 6},
+                        {Hex: "7", Dec: 7},
+                        {Hex: "8", Dec: 8},
+                        {Hex: "9", Dec: 9},
+                        {Hex: "A", Dec: 10},
+                        {Hex: "B", Dec: 11},
+                        {Hex: "C", Dec: 12},
+                        {Hex: "D", Dec: 13},
+                        {Hex: "E", Dec: 14},
+                        {Hex: "F", Dec: 15}
+                    ) );
+                
+                // Other References
+                    Set( ColorMixerConfig, {
+                        Fading: {
+                            Alternate: 0.35,
+                            Tertiary: -0.27,
+                            Back: 0.92
+                        },
+                        FontColor: {
+                            Light: ColorValue( "#FAFAFA" ),
+                            Dark: ColorValue( "#141414" )
+                        },
+                        Treshold: {
+                            LightOrDark: 130
+                        }
+                    } );
+                
+                // If we have a HexColorCode, we use it.  If not, we generate a random color.
+                    Set( ColorMixerBase, If( IsBlank( HexColorCode ) Or HexColorCode = "", Self.RandomHexColor(), HexColorCode ) );
+                
+                // Establish the Hexadecimal Value for each 4 colors.
+                    Set( ColorMixerMainHex, Self.SanitizeHexCode( ColorMixerBase ) );
+                    Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );
+                    Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );
+                    Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );
+                
+                // Process MAIN Color
+                    Set( ColorMixingHex, ColorMixerMainHex );
+                    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                    Set( ColorMixedMain, 
+                                    {
+                                        Hex: ColorMixingHex,
+                                        Dec: ColorMixingDec,
+                                        Shade: ColorMixingShadeName,
+                                        IsLight: ( ColorMixingShadeName = "light" ),
+                                        IsDark: ( ColorMixingShadeName = "dark" ),
+                                        Color: ColorValue( ColorMixingHex ),
+                                        Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                    }
+                    );
+                
+                // Process ALTERNATE Color
+                    Set( ColorMixingHex, ColorMixerAltHex );
+                    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                    Set( ColorMixedAlt, 
+                                    {
+                                        Hex: ColorMixingHex,
+                                        Dec: ColorMixingDec,
+                                        Shade: ColorMixingShadeName,
+                                        IsLight: ( ColorMixingShadeName = "light" ),
+                                        IsDark: ( ColorMixingShadeName = "dark" ),
+                                        Color: ColorValue( ColorMixingHex ),
+                                        Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                    }
+                    );
+                
+                // Process TERTIARY Color
+                    Set( ColorMixingHex, ColorMixerTerHex );
+                    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                    Set( ColorMixedTer, 
+                                    {
+                                        Hex: ColorMixingHex,
+                                        Dec: ColorMixingDec,
+                                        Shade: ColorMixingShadeName,
+                                        IsLight: ( ColorMixingShadeName = "light" ),
+                                        IsDark: ( ColorMixingShadeName = "dark" ),
+                                        Color: ColorValue( ColorMixingHex ),
+                                        Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                    }
+                    );
+                
+                // Process BACK Color
+                    Set( ColorMixingHex, ColorMixerBackHex );
+                    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );
+                    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );
+                    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, "dark", "light" ) );
+                    Set( ColorMixedBack, 
+                                    {
+                                        Hex: ColorMixingHex,
+                                        Dec: ColorMixingDec,
+                                        Shade: ColorMixingShadeName,
+                                        IsLight: ( ColorMixingShadeName = "light" ),
+                                        IsDark: ( ColorMixingShadeName = "dark" ),
+                                        Color: ColorValue( ColorMixingHex ),
+                                        Font: ( If( ColorMixingShadeName = "light", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )
+                                    }
+                    );
+                
+                // Build the Palette
+                    Set( ColorMixedPalette, {
+                        main: ColorMixedMain,
+                        alt: ColorMixedAlt,
+                        ter: ColorMixedTer,
+                        back: ColorMixedBack
+                    } );
+    HexToRGB(HexToConvert As String):
+        HexToConvert:
+            Default: |-
+                ="#C3C3C3"
+        ThisProperty:
+            Default: |-
+                ={
+                    R: Self.PrimaryHexToDec( Mid( HexToConvert, 2, 2 ) ),
+                    G: Self.PrimaryHexToDec( Mid( HexToConvert, 4, 2 ) ),
+                    B: Self.PrimaryHexToDec( Mid( HexToConvert, 6, 2 ) )
+                }
+    PrimaryHexToDec(PrimaryHexCode As String):
+        PrimaryHexCode:
+            Default: ="C3"
+        ThisProperty:
+            Default: =( LookUp( ColorMixerHexTable, Hex = Left( PrimaryHexCode, 1 ) ).Dec * 16 ) + LookUp( ColorMixerHexTable, Hex = Right( PrimaryHexCode, 1 ) ).Dec
+    RandomHexColor():
+        ThisProperty:
+            Default: |-
+                ="#" & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex
+    SanitizeHexCode(DirtyHexCode As String):
+        DirtyHexCode:
+            Default: |-
+                ="#c3c3c3ff"
+        ThisProperty:
+            Default: |-
+                ="#" & Left( Upper( Substitute( Substitute( DirtyHexCode, Char(34), "" ), "#", "" ) ), 6 )
+    Colors: =ColorMixedPalette
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =100
+    Width: =100
+    X: =0
+    Y: =0
+    ZIndex: =1
+

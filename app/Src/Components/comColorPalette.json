@@ -1,0 +1,410 @@
+{
+  "ComponentAllowCustomization": false,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentDefinitionInfo": {
+    "AllowAccessToGlobals": false,
+    "Children": [],
+    "ControlPropertyState": [
+      "Fill",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "Height",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "Width",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "X",
+      "Y",
+      "ZIndex",
+      "Create_HexColorCode",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "// HEX Reference Table\n    Set( ColorMixerHexTable, Table(\n        {Hex: \"1\", Dec: 1},\n        {Hex: \"2\", Dec: 2},\n        {Hex: \"3\", Dec: 3},\n        {Hex: \"4\", Dec: 4},\n        {Hex: \"5\", Dec: 5},\n        {Hex: \"6\", Dec: 6},\n        {Hex: \"7\", Dec: 7},\n        {Hex: \"8\", Dec: 8},\n        {Hex: \"9\", Dec: 9},\n        {Hex: \"A\", Dec: 10},\n        {Hex: \"B\", Dec: 11},\n        {Hex: \"C\", Dec: 12},\n        {Hex: \"D\", Dec: 13},\n        {Hex: \"E\", Dec: 14},\n        {Hex: \"F\", Dec: 15}\n    ) );\n\n// Other References\n    Set( ColorMixerConfig, {\n        Fading: {\n            Alternate: 0.35,\n            Tertiary: -0.27,\n            Back: 0.92\n        },\n        FontColor: {\n            Light: ColorValue( \"#FAFAFA\" ),\n            Dark: ColorValue( \"#141414\" )\n        },\n        Treshold: {\n            LightOrDark: 130\n        }\n    } );\n\n// Establish the Hexadecimal Value for each 4 colors.\n    Set( ColorMixerMainHex, Self.SanitizeHexCode( HexColorCode ) );\n    Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );\n    Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );\n    Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );\n\n// Build the Palette\n    Set( ColorMixerPalette, {\n        main: Self.BuildPaletteColor( ColorMixerMainHex ),\n        alt: Self.BuildPaletteColor( ColorMixerAltHex ),\n        ter: Self.BuildPaletteColor( ColorMixerTerHex ),\n        back: Self.BuildPaletteColor( ColorMixerBackHex )\n    } );\n",
+        "InvariantPropertyName": "Create",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "\"Text\"",
+        "InvariantPropertyName": "SanitizeHexCode_DirtyHexCode",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "\"Text\"",
+        "InvariantPropertyName": "SanitizeHexCode",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "\"Text\"",
+        "InvariantPropertyName": "PrimaryHexToDec_PrimaryHexCode",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "100",
+        "InvariantPropertyName": "PrimaryHexToDec",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "\"Text\"",
+        "InvariantPropertyName": "HexToRGB_HexToConvert",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "{\r\n    R: Self.PrimaryHexToDec( Mid( HexToConvert, 2 ) ),\r\n    G: 0,\r\n    B: 0\r\n}",
+        "InvariantPropertyName": "HexToRGB",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "100",
+        "InvariantPropertyName": "BrightnessLevel",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "BrightnessLevel_RGBRecord",
+      "Colors",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "\"Text\"",
+        "InvariantPropertyName": "RandomHexColor",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      }
+    ],
+    "LastModifiedTimestamp": "638299576626504091",
+    "Name": "comColorPalette",
+    "Rules": [
+      {
+        "Category": "Data",
+        "InvariantScript": "\"#c3c3c3ff\"",
+        "Property": "SanitizeHexCode_DirtyHexCode",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "\"#\" & Left( Upper( Substitute( Substitute( DirtyHexCode, Char(34), \"\" ), \"#\", \"\" ) ), 6 )",
+        "Property": "SanitizeHexCode",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "\"C3\"",
+        "Property": "PrimaryHexToDec_PrimaryHexCode",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "( LookUp( ColorMixerHexTable, Hex = Left( PrimaryHexCode, 1 ) ).Dec * 16 ) + LookUp( ColorMixerHexTable, Hex = Right( PrimaryHexCode, 1 ) ).Dec",
+        "Property": "PrimaryHexToDec",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "\"#C3C3C3\"",
+        "Property": "HexToRGB_HexToConvert",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "{\n    R: Self.PrimaryHexToDec( Mid( HexToConvert, 2, 2 ) ),\n    G: Self.PrimaryHexToDec( Mid( HexToConvert, 4, 2 ) ),\n    B: Self.PrimaryHexToDec( Mid( HexToConvert, 6, 2 ) )\n}",
+        "Property": "HexToRGB",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "Round( Sqrt( (0.241 * RGBRecord.R^2) + (0.691 * RGBRecord.G^2) + (0.068 * RGBRecord.B^2) ), 3 )",
+        "Property": "BrightnessLevel",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "{R: 0, G: 0, B: 0}",
+        "Property": "BrightnessLevel_RGBRecord",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "ColorMixedPalette",
+        "Property": "Colors",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "\"#c3c3c3\"",
+        "Property": "Create_HexColorCode",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "\"#\" & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex",
+        "Property": "RandomHexColor",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "1",
+        "Property": "ZIndex",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "Y",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "X",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "100",
+        "Property": "Width",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "100",
+        "Property": "Height",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "RGBA(0, 0, 0, 0)",
+        "Property": "Fill",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Behavior",
+        "InvariantScript": "// HEX Reference Table\n    Set( ColorMixerHexTable, Table(\n        {Hex: \"1\", Dec: 1},\n        {Hex: \"2\", Dec: 2},\n        {Hex: \"3\", Dec: 3},\n        {Hex: \"4\", Dec: 4},\n        {Hex: \"5\", Dec: 5},\n        {Hex: \"6\", Dec: 6},\n        {Hex: \"7\", Dec: 7},\n        {Hex: \"8\", Dec: 8},\n        {Hex: \"9\", Dec: 9},\n        {Hex: \"A\", Dec: 10},\n        {Hex: \"B\", Dec: 11},\n        {Hex: \"C\", Dec: 12},\n        {Hex: \"D\", Dec: 13},\n        {Hex: \"E\", Dec: 14},\n        {Hex: \"F\", Dec: 15}\n    ) );\n\n// Other References\n    Set( ColorMixerConfig, {\n        Fading: {\n            Alternate: 0.35,\n            Tertiary: -0.27,\n            Back: 0.92\n        },\n        FontColor: {\n            Light: ColorValue( \"#FAFAFA\" ),\n            Dark: ColorValue( \"#141414\" )\n        },\n        Treshold: {\n            LightOrDark: 130\n        }\n    } );\n\n// If we have a HexColorCode, we use it.  If not, we generate a random color.\n    Set( ColorMixerBase, If( IsBlank( HexColorCode ) Or HexColorCode = \"\", Self.RandomHexColor(), HexColorCode ) );\n\n// Establish the Hexadecimal Value for each 4 colors.\n    Set( ColorMixerMainHex, Self.SanitizeHexCode( ColorMixerBase ) );\n    Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );\n    Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );\n    Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );\n\n// Process MAIN Color\n    Set( ColorMixingHex, ColorMixerMainHex );\n    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );\n    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );\n    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, \"dark\", \"light\" ) );\n    Set( ColorMixedMain, \n                    {\n                        Hex: ColorMixingHex,\n                        Dec: ColorMixingDec,\n                        Shade: ColorMixingShadeName,\n                        IsLight: ( ColorMixingShadeName = \"light\" ),\n                        IsDark: ( ColorMixingShadeName = \"dark\" ),\n                        Color: ColorValue( ColorMixingHex ),\n                        Font: ( If( ColorMixingShadeName = \"light\", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )\n                    }\n    );\n\n// Process ALTERNATE Color\n    Set( ColorMixingHex, ColorMixerAltHex );\n    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );\n    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );\n    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, \"dark\", \"light\" ) );\n    Set( ColorMixedAlt, \n                    {\n                        Hex: ColorMixingHex,\n                        Dec: ColorMixingDec,\n                        Shade: ColorMixingShadeName,\n                        IsLight: ( ColorMixingShadeName = \"light\" ),\n                        IsDark: ( ColorMixingShadeName = \"dark\" ),\n                        Color: ColorValue( ColorMixingHex ),\n                        Font: ( If( ColorMixingShadeName = \"light\", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )\n                    }\n    );\n\n// Process TERTIARY Color\n    Set( ColorMixingHex, ColorMixerTerHex );\n    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );\n    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );\n    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, \"dark\", \"light\" ) );\n    Set( ColorMixedTer, \n                    {\n                        Hex: ColorMixingHex,\n                        Dec: ColorMixingDec,\n                        Shade: ColorMixingShadeName,\n                        IsLight: ( ColorMixingShadeName = \"light\" ),\n                        IsDark: ( ColorMixingShadeName = \"dark\" ),\n                        Color: ColorValue( ColorMixingHex ),\n                        Font: ( If( ColorMixingShadeName = \"light\", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )\n                    }\n    );\n\n// Process BACK Color\n    Set( ColorMixingHex, ColorMixerBackHex );\n    Set( ColorMixingDec, Self.HexToRGB( ColorMixingHex ) );\n    Set( ColorMixingBrightness, Self.BrightnessLevel( ColorMixingDec ) );\n    Set( ColorMixingShadeName, If( ColorMixingBrightness < ColorMixerConfig.Treshold.LightOrDark, \"dark\", \"light\" ) );\n    Set( ColorMixedBack, \n                    {\n                        Hex: ColorMixingHex,\n                        Dec: ColorMixingDec,\n                        Shade: ColorMixingShadeName,\n                        IsLight: ( ColorMixingShadeName = \"light\" ),\n                        IsDark: ( ColorMixingShadeName = \"dark\" ),\n                        Color: ColorValue( ColorMixingHex ),\n                        Font: ( If( ColorMixingShadeName = \"light\", ColorMixerConfig.FontColor.Dark, ColorMixerConfig.FontColor.Light ) )\n                    }\n    );\n\n// Build the Palette\n    Set( ColorMixedPalette, {\n        main: ColorMixedMain,\n        alt: ColorMixedAlt,\n        ter: ColorMixedTer,\n        back: ColorMixedBack\n    } );\n",
+        "Property": "Create",
+        "RuleProviderType": "System"
+      }
+    ]
+  },
+  "ComponentExtraMetadata": {
+    "ComponentDescription": "Build a Color Palette based on a single Hex Color Code."
+  },
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": false,
+    "Description": "Build a Color Palette based on a single Hex Color Code.",
+    "Name": "comColorPalette",
+    "TemplateGuid": "6ee670762ec946bda43c70b82093dba0"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 2,
+      "DisplayName": "Create",
+      "Hidden": true,
+      "Name": "Create",
+      "PropertyDataTypeKey": "Boolean",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "Create_HexColorCode",
+            "Name": "Create_HexColorCode",
+            "PropertyDataTypeKey": "String",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "Color Hexadecimal Code.",
+              "IsRequired": false,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "HexColorCode"
+            },
+            "Tooltip": "Color Hexadecimal Code.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "Create (Initialize) the Color Palette.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Sanitize Hex Code",
+      "Hidden": true,
+      "Name": "SanitizeHexCode",
+      "PropertyDataTypeKey": "String",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "SanitizeHexCode_DirtyHexCode",
+            "Name": "SanitizeHexCode_DirtyHexCode",
+            "PropertyDataTypeKey": "String",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "Hexadecimal Color Code to Sanitize.",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "DirtyHexCode"
+            },
+            "Tooltip": "Hexadecimal Color Code to Sanitize.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "Clean an Hex Color Code to have a standard value.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Primary Hex to Dec",
+      "Hidden": true,
+      "Name": "PrimaryHexToDec",
+      "PropertyDataTypeKey": "Number",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "PrimaryHexToDec_PrimaryHexCode",
+            "Name": "PrimaryHexToDec_PrimaryHexCode",
+            "PropertyDataTypeKey": "String",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "2-Characters Hexadecimal Primary (R, G, B) Color Code.",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "PrimaryHexCode"
+            },
+            "Tooltip": "2-Characters Hexadecimal Primary (R, G, B) Color Code.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "Primary (R, G, B) Hex Code to Dec Value.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Hex to RGB",
+      "Hidden": true,
+      "Name": "HexToRGB",
+      "PropertyDataTypeKey": "Record",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "HexToRGB_HexToConvert",
+            "Name": "HexToRGB_HexToConvert",
+            "PropertyDataTypeKey": "String",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "Hexadecimal Color Code to Convert to RGB Record.",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "HexToConvert"
+            },
+            "Tooltip": "Hexadecimal Color Code to Convert to RGB Record.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "Full Hexadecimal Color Code to RGB Record.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"B\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"G\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"R\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Brightness Level",
+      "Hidden": true,
+      "Name": "BrightnessLevel",
+      "PropertyDataTypeKey": "Number",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "BrightnessLevel_RGBRecord",
+            "Name": "BrightnessLevel_RGBRecord",
+            "PropertyDataTypeKey": "Record",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "RGB Record to evaluate.",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "RGBRecord"
+            },
+            "Tooltip": "RGB Record to evaluate.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"B\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"G\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"R\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]}}"
+          }
+        ]
+      },
+      "Tooltip": "Calculate the Brightness Level for a RGB Record.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Colors",
+      "Hidden": true,
+      "Name": "Colors",
+      "PropertyDataTypeKey": "Record",
+      "Tooltip": "Palette of colors.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"alt\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Color\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Dec\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"B\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"G\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"R\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"Font\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Hex\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"IsDark\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"IsLight\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Shade\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"back\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Color\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Dec\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"B\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"G\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"R\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"Font\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Hex\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"IsDark\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"IsLight\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Shade\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"main\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Color\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Dec\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"B\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"G\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"R\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"Font\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Hex\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"IsDark\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"IsLight\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Shade\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"ter\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Color\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Dec\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"B\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"G\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"R\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"Font\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Hex\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"IsDark\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"IsLight\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Shade\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Random Hex Color",
+      "Hidden": true,
+      "Name": "RandomHexColor",
+      "PropertyDataTypeKey": "String",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": []
+      },
+      "Tooltip": "Generate a Random Hexadecimal Color Code.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638299576626504091",
+  "Name": "6ee670762ec946bda43c70b82093dba0",
+  "OverridableProperties": {},
+  "Version": "638299518756291539"
+}
