@@ -94,6 +94,10 @@ comColorPalette As CanvasComponent:
             Default: ="C3"
         ThisProperty:
             Default: =( LookUp( ColorMixerHexTable, Hex = Left( PrimaryHexCode, 1 ) ).Dec * 16 ) + LookUp( ColorMixerHexTable, Hex = Right( PrimaryHexCode, 1 ) ).Dec
+    RandomHexColor():
+        ThisProperty:
+            Default: |-
+                ="#" & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex & First( Shuffle( ColorMixerHexTable ) ).Hex
     SanitizeHexCode(DirtyHexCode As String):
         DirtyHexCode:
             Default: |-
