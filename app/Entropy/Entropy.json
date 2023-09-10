@@ -1,13 +1,18 @@
 {
   "ComponentIndexes": {
+    "ColorMixer": 1,
     "comColorPalette": 1
   },
   "ControlUniqueGuids": {},
   "ControlUniqueIds": {
     "App": 1,
+    "btnColorMixer": 8,
     "Color Palette Screen": 5,
+    "ColorMixer": 9,
     "comColorPalette": 4,
-    "Host": 3
+    "Host": 3,
+    "lblColorMixerCode": 6,
+    "txtColorMixerCode": 7
   },
   "FunctionParamsInvariantScripts": {
     "comColorPalette.BuildPaletteColor_HexColorToUse": [
@@ -27,8 +32,25 @@
       "\"#c3c3c3ff\""
     ]
   },
-  "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:09:35",
+  "FunctionParamsInvariantScriptsOnInstances": {
+    "ColorMixer.BuildPaletteColor_HexColorToUse": [
+      "\"Text\"",
+      "\"#C3C3C3\""
+    ],
+    "ColorMixer.HexToRGB_HexToConvert": [
+      "\"Text\"",
+      "\"#C3C3C3\""
+    ],
+    "ColorMixer.PrimaryHexToDec_PrimaryHexCode": [
+      "\"Text\"",
+      "\"C3\""
+    ],
+    "ColorMixer.SanitizeHexCode_DirtyHexCode": [
+      "\"Text\"",
+      "\"#c3c3c3ff\""
+    ]
+  },
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:15:12",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -45,20 +67,32 @@
   "OrderGroupControls": {},
   "OrderPcfTemplate": {},
   "OrderTemplate": {},
-  "OrderXMLTemplate": {},
+  "OrderXMLTemplate": {
+    "button": 2,
+    "label": 0,
+    "text": 1
+  },
   "OverridablePropertiesEntry": {
     "App": {},
+    "btnColorMixer": {},
     "Color Palette Screen": {},
+    "ColorMixer": {},
     "comColorPalette": {},
-    "Host": {}
+    "Host": {},
+    "lblColorMixerCode": {},
+    "txtColorMixerCode": {}
   },
   "PCFDynamicSchemaForIRRetrievalEntry": {},
   "PCFTemplateEntry": {},
   "PublishOrderIndices": {
     "App": 0,
+    "btnColorMixer": 2,
     "Color Palette Screen": 0,
+    "ColorMixer": 0,
     "comColorPalette": 0,
-    "Host": 0
+    "Host": 0,
+    "lblColorMixerCode": 0,
+    "txtColorMixerCode": 1
   },
   "ResourcesJsonIndices": {},
   "RuleScreenIdWithoutScreen": {},
@@ -66,7 +100,7 @@
   "VolatileProperties": {
     "AnalysisLoadTime": 0.0856393,
     "ControlCount": {
-      "6ee670762ec946bda43c70b82093dba0": 1,
+      "6ee670762ec946bda43c70b82093dba0": 2,
       "screen": 1
     },
     "DeserializationLoadTime": 1.5202452
