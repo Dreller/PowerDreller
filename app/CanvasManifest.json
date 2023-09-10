@@ -108,11 +108,11 @@
     "DocumentType": "ComponentLibrary",
     "EnableInstrumentation": false,
     "FileID": "58c5d936-fde3-4b86-ba78-96fd2a9a9d59",
-    "Id": "58c5d936-fde3-4b86-ba78-96fd2a9a9d59",
+    "Id": "0357ea88-cc1a-418e-9cbc-1e1d703abb57",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
-    "Name": "PowerDreller",
+    "Name": "PowerDreller.msapp",
     "OriginatingVersion": "1.334",
     "ParserErrorCount": 0,
     "ShowStatusBar": false

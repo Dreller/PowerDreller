@@ -56,7 +56,7 @@
       "\"#c3c3c3ff\""
     ]
   },
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:48:56",
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 16:00:46",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -209,7 +209,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.2260123,
+    "AnalysisLoadTime": 0.2186537,
     "ControlCount": {
       "6ee670762ec946bda43c70b82093dba0": 2,
       "button": 2,
@@ -223,7 +223,7 @@
       "screen": 1,
       "text": 1
     },
-    "DeserializationLoadTime": 2.0841103
+    "DeserializationLoadTime": 1.1003481
   },
   "WasLocalDatabaseReferencesEmpty": true
 }
