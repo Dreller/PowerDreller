@@ -6,3 +6,15 @@ comToast As CanvasComponent:
     Y: =0
     ZIndex: =1
 
+    HtmlText1 As htmlViewer:
+        Height: =165
+        HtmlText: |-
+            ="<svg viewBox='0 0 300 100' xmlns='http://www.w3.org/2000/svg'>
+                <rect width='290' height='80' x='3' y='3' style='fill: rgb(61,61,61);'>
+                    <animate attributeName='rx' values='0;20;0' dur='10s' repeatCount='indefinite' />
+                </rect>
+            </svg>"
+        Width: =450
+        Y: =35
+        ZIndex: =1
+
