@@ -1,12 +1,28 @@
 "'Color Palette Screen' As screen":
 
+    lblColorMixerPalette As label:
+        Color: =RGBA(26, 26, 26, 1)
+        Font: =Font.'Courier New'
+        Height: =633
+        LineHeight: =1
+        Size: =9
+        Text: =PaletteAsJSON
+        VerticalAlign: =VerticalAlign.Top
+        Width: =469
+        X: =664
+        Y: =7
+        ZIndex: =1
+
     btnColorMixer As button:
         BorderColor: =RGBA(116, 116, 116, 1)
         BorderThickness: =1
         Color: =RGBA(26, 26, 26, 1)
         Fill: =RGBA(0, 0, 0, 0)
         Height: =41
-        OnSelect: =ColorMixer.Create( txtColorMixerCode.Text );
+        OnSelect: |-
+            =Set( PaletteAsJSON, Blank() );
+            ColorMixer.Create( txtColorMixerCode.Text );
+            Set( PaletteAsJSON, JSON( ColorMixer.Colors, JSONFormat.IndentFour ) );
         RadiusBottomLeft: =2
         RadiusBottomRight: =2
         RadiusTopLeft: =2
@@ -16,7 +32,7 @@
         Width: =138
         X: =273
         Y: =70
-        ZIndex: =1
+        ZIndex: =2
 
     txtColorMixerCode As text:
         BorderColor: =RGBA(149, 149, 149, 1)
@@ -35,7 +51,7 @@
         Width: =223
         X: =28
         Y: =65
-        ZIndex: =2
+        ZIndex: =3
 
     lblColorMixerCode As label:
         Color: =RGBA(26, 26, 26, 1)
@@ -46,7 +62,7 @@
         Width: =196
         X: =28
         Y: =36
-        ZIndex: =3
+        ZIndex: =4
 
     ColorMixer As comColorPalette:
         BrightnessLevel: =Round( Sqrt( (0.241 * RGBRecord.R^2) + (0.691 * RGBRecord.G^2) + (0.068 * RGBRecord.B^2) ), 3 )
@@ -131,46 +147,5 @@
             ="#" & Left( Upper( Substitute( Substitute( DirtyHexCode, Char(34), "" ), "#", "" ) ), 6 )
         X: =8
         Y: =532
-        ZIndex: =4
-
-    ColorCircle As group:
-        Height: =5
-        Width: =5
-        X: =-416
-        Y: =-194
-        ZIndex: =8
-
-        shpCircleMain As circle:
-            BorderColor: =Color.Black
-            BorderThickness: =1
-            Fill: =ColorMixer.Colors.main.Color
-            FocusedBorderThickness: =1
-            Height: =200
-            Width: =200
-            X: =198
-            Y: =240
-            ZIndex: =5
-
-        shpCircleAlt As partialCircle:
-            BorderColor: =Color.Black
-            BorderThickness: =1
-            Fill: =ColorMixer.Colors.alt.Color
-            FocusedBorderThickness: =1
-            Height: =200
-            Width: =200
-            X: =198
-            Y: =240
-            ZIndex: =6
-
-        shpCircleTer As partialCircle.quarterCircle:
-            BorderColor: =Color.Black
-            BorderThickness: =1
-            Fill: =ColorMixer.Colors.ter.Color
-            FocusedBorderThickness: =1
-            Height: =200
-            Tooltip: ="Tertiary (Ter) Color"
-            Width: =200
-            X: =198
-            Y: =240
-            ZIndex: =7
+        ZIndex: =5
 
