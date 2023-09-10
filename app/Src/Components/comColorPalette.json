@@ -158,6 +158,35 @@
       },
       "Tooltip": "Calculate the Brightness Level for a RGB Record.",
       "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 2,
+      "DisplayName": "Build Palette Color",
+      "Hidden": true,
+      "Name": "BuildPaletteColor",
+      "PropertyDataTypeKey": "Record",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "BuildPaletteColor_HexColorToUse",
+            "Name": "BuildPaletteColor_HexColorToUse",
+            "PropertyDataTypeKey": "String",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "Hexadecimal Color Code to use.",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "HexColorToUse"
+            },
+            "Tooltip": "Hexadecimal Color Code to use.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "Build the record for a Color to add to the final Palette.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"SampleBooleanField\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"SampleNumberField\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"SampleStringField\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
     }
   ],
   "FirstParty": true,
@@ -168,7 +197,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638299543751359109",
+  "LastModifiedTimestamp": "638299548066634530",
   "Name": "6ee670762ec946bda43c70b82093dba0",
   "OverridableProperties": {},
   "Version": "638299518756291539"

@@ -10,6 +10,10 @@
     "Screen1": 5
   },
   "FunctionParamsInvariantScripts": {
+    "comColorPalette.BuildPaletteColor_HexColorToUse": [
+      "\"Text\"",
+      "\"#C3C3C3\""
+    ],
     "comColorPalette.Create_HexColorCode": [
       "\"Text\"",
       "\"#c3c3c3\""
@@ -28,7 +32,7 @@
     ]
   },
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 14:52:59",
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:00:10",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
