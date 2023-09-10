@@ -1,0 +1,88 @@
+{
+  "ComponentAllowCustomization": false,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentExtraMetadata": {
+    "ComponentDescription": "Build a Color Palette based on a single Hex Color Code."
+  },
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": false,
+    "Description": "Build a Color Palette based on a single Hex Color Code.",
+    "Name": "comColorPalette",
+    "TemplateGuid": "6ee670762ec946bda43c70b82093dba0"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 2,
+      "DisplayName": "Create",
+      "Hidden": true,
+      "Name": "Create",
+      "PropertyDataTypeKey": "Record",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "Create_HexColorCode",
+            "Name": "Create_HexColorCode",
+            "PropertyDataTypeKey": "String",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "Color Hexadecimal Code.",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "HexColorCode"
+            },
+            "Tooltip": "Color Hexadecimal Code.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "Create (Initialize) the Color Palette.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"SampleBooleanField\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"SampleNumberField\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"SampleStringField\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Sanitize Hex Code",
+      "Hidden": true,
+      "Name": "SanitizeHexCode",
+      "PropertyDataTypeKey": "String",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "SanitizeHexCode_DirtyHexCode",
+            "Name": "SanitizeHexCode_DirtyHexCode",
+            "PropertyDataTypeKey": "String",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "Hexadecimal Color Code to Sanitize.",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "DirtyHexCode"
+            },
+            "Tooltip": "Hexadecimal Color Code to Sanitize.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "Clean an Hex Color Code to have a standard value.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638299526846159967",
+  "Name": "6ee670762ec946bda43c70b82093dba0",
+  "OverridableProperties": {},
+  "Version": "638299518756291539"
+}

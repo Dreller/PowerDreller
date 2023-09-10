@@ -1,17 +1,17 @@
 {
   "ComponentIndexes": {
-    "Component1": 1
+    "comColorPalette": 1
   },
   "ControlUniqueGuids": {},
   "ControlUniqueIds": {
     "App": 1,
-    "Component1": 4,
+    "comColorPalette": 4,
     "Host": 3,
     "Screen1": 5
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 14:16:02",
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 14:24:48",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -31,7 +31,7 @@
   "OrderXMLTemplate": {},
   "OverridablePropertiesEntry": {
     "App": {},
-    "Component1": {},
+    "comColorPalette": {},
     "Host": {},
     "Screen1": {}
   },
@@ -39,7 +39,7 @@
   "PCFTemplateEntry": {},
   "PublishOrderIndices": {
     "App": 0,
-    "Component1": 0,
+    "comColorPalette": 0,
     "Host": 0,
     "Screen1": 0
   },
@@ -47,12 +47,12 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.0421934,
+    "AnalysisLoadTime": 0.0418832,
     "ControlCount": {
       "6ee670762ec946bda43c70b82093dba0": 1,
       "screen": 1
     },
-    "DeserializationLoadTime": 1.0210733
+    "DeserializationLoadTime": 0.393172
   },
   "WasLocalDatabaseReferencesEmpty": true
 }

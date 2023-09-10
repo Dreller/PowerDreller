@@ -1,0 +1,20 @@
+comColorPalette As CanvasComponent:
+    Create(HexColorCode As String):
+        HexColorCode:
+            Default: ="Text"
+        ThisProperty:
+            Default: |-
+                ={SampleStringField: "SampleText", SampleNumberField: 10, SampleBooleanField: true}
+    SanitizeHexCode(DirtyHexCode As String):
+        DirtyHexCode:
+            Default: ="Text"
+        ThisProperty:
+            Default: |-
+                ="#" & Left( Upper( Substitute( Substitute( DirtyHexCode, Char(34), "" ), "#", "" ) ), 6 )
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =100
+    Width: =100
+    X: =0
+    Y: =0
+    ZIndex: =1
+
