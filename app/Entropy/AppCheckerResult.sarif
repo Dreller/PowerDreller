@@ -81,17 +81,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "comColorPalette.ColorMixerConfig"
+                  "fullyQualifiedName": "comColorPalette.ColorMixerAltHex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "comColorPalette.ColorMixerConfig",
+                  "fullyQualifiedName": "comColorPalette.ColorMixerAltHex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "ColorMixerConfig",
+                "member": "ColorMixerAltHex",
                 "module": "comColorPalette",
                 "type": "comColorPalette"
               }
@@ -122,6 +122,66 @@
               },
               "properties": {
                 "member": "ColorMixerHexTable",
+                "module": "comColorPalette",
+                "type": "comColorPalette"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "comColorPalette.ColorMixerTerHex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "comColorPalette.ColorMixerTerHex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "ColorMixerTerHex",
+                "module": "comColorPalette",
+                "type": "comColorPalette"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "comColorPalette.ColorMixerBackHex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "comColorPalette.ColorMixerBackHex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "ColorMixerBackHex",
                 "module": "comColorPalette",
                 "type": "comColorPalette"
               }
