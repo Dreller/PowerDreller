@@ -48,9 +48,9 @@ comColorPalette As CanvasComponent:
                 
                 // Establish the Hexadecimal Value for each 4 colors.
                     Set( ColorMixerMainHex, Self.SanitizeHexCode( HexColorCode ) );
-                    Set( ColorMixerAltHex, JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) );
-                    Set( ColorMixerTerHex, JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) );
-                    Set( ColorMixerBackHex, JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) );
+                    Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );
+                    Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );
+                    Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );
     HexToRGB(HexToConvert As String):
         HexToConvert:
             Default: |-

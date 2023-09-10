@@ -81,17 +81,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "comColorPalette.ColorMixerAltHex"
+                  "fullyQualifiedName": "comColorPalette.ColorMixerBackHex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "comColorPalette.ColorMixerAltHex",
+                  "fullyQualifiedName": "comColorPalette.ColorMixerBackHex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "ColorMixerAltHex",
+                "member": "ColorMixerBackHex",
                 "module": "comColorPalette",
                 "type": "comColorPalette"
               }
@@ -141,17 +141,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "comColorPalette.ColorMixerBackHex"
+                  "fullyQualifiedName": "comColorPalette.ColorMixerAltHex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "comColorPalette.ColorMixerBackHex",
+                  "fullyQualifiedName": "comColorPalette.ColorMixerAltHex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "ColorMixerBackHex",
+                "member": "ColorMixerAltHex",
                 "module": "comColorPalette",
                 "type": "comColorPalette"
               }
