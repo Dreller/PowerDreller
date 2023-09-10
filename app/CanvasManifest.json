@@ -15,7 +15,7 @@
       "appinstrumentationcorrelationtracing": false,
       "autocreateenvironmentvariables": false,
       "backfromhostaction": false,
-      "behaviorpropertyui": false,
+      "behaviorpropertyui": true,
       "blockmovingcontrol": true,
       "cdsdataformatting": false,
       "classiccontrols": false,
@@ -92,7 +92,7 @@
       "useguiddatatypes": true,
       "usenonblockingonstartrule": true,
       "webbarcodescanner": false,
-      "zeroalltabindexes": true
+      "zeroalltabindexes": false
     },
     "Author": "",
     "BindingErrorCount": 0,
@@ -111,7 +111,7 @@
     "Id": "58c5d936-fde3-4b86-ba78-96fd2a9a9d59",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
-    "ManualOfflineProfileId": null,
+    "ManualOfflineProfileId": "",
     "Name": "PowerDreller",
     "OriginatingVersion": "1.334",
     "ParserErrorCount": 0,
