@@ -25,12 +25,18 @@ comColorPalette As CanvasComponent:
                 
                 // Other References
                     Set( ColorMixerConfig, {
-                        AlternatePercent: 0.35,
-                        TertiaryPercent: -0.27,
-                        BackPercent: 0.92,
-                        FontLight: ColorValue( "#FAFAFA" ),
-                        FontDark: ColorValue( "#141414" ),
-                        ShareTreshold: 130
+                        Fading: {
+                            Alternate: 0.35,
+                            Tertiary: -0.27,
+                            Back: 0.92
+                        },
+                        FontColor: {
+                            Light: ColorValue( "#FAFAFA" ),
+                            Dark: ColorValue( "#141414" )
+                        },
+                        Treshold: {
+                            LightOrDark: 130
+                        }
                     } );
                 
     SanitizeHexCode(DirtyHexCode As String):
