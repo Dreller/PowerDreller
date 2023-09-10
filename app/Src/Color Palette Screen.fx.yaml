@@ -154,7 +154,7 @@
         shpCircleAlt As partialCircle:
             BorderColor: =Color.Black
             BorderThickness: =1
-            Fill: =Colorizer.Palette.alt.Color
+            Fill: =ColorMixer.Colors.alt.Color
             FocusedBorderThickness: =1
             Height: =200
             Width: =200
@@ -165,7 +165,7 @@
         shpCircleTer As partialCircle.quarterCircle:
             BorderColor: =Color.Black
             BorderThickness: =1
-            Fill: =Colorizer.Palette.ter.Color
+            Fill: =ColorMixer.Colors.ter.Color
             FocusedBorderThickness: =1
             Height: =200
             Tooltip: ="Tertiary (Ter) Color"
