@@ -8,10 +8,14 @@
     "App": 1,
     "btnColorMixer": 8,
     "Color Palette Screen": 5,
+    "ColorCircle": 13,
     "ColorMixer": 9,
     "comColorPalette": 4,
     "Host": 3,
     "lblColorMixerCode": 6,
+    "shpCircleAlt": 11,
+    "shpCircleMain": 10,
+    "shpCircleTer": 12,
     "txtColorMixerCode": 7
   },
   "FunctionParamsInvariantScripts": {
@@ -50,7 +54,7 @@
       "\"#c3c3c3ff\""
     ]
   },
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:15:12",
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:16:10",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -64,22 +68,34 @@
     "6ee670762ec946bda43c70b82093dba0": 0
   },
   "OrderDataSource": {},
-  "OrderGroupControls": {},
+  "OrderGroupControls": {
+    "ColorCircle": {
+      "shpCircleAlt": 1,
+      "shpCircleMain": 0,
+      "shpCircleTer": 2
+    }
+  },
   "OrderPcfTemplate": {},
   "OrderTemplate": {},
   "OrderXMLTemplate": {
     "button": 2,
+    "circle": 3,
     "label": 0,
+    "partialCircle": 4,
     "text": 1
   },
   "OverridablePropertiesEntry": {
     "App": {},
     "btnColorMixer": {},
     "Color Palette Screen": {},
+    "ColorCircle": {},
     "ColorMixer": {},
     "comColorPalette": {},
     "Host": {},
     "lblColorMixerCode": {},
+    "shpCircleAlt": {},
+    "shpCircleMain": {},
+    "shpCircleTer": {},
     "txtColorMixerCode": {}
   },
   "PCFDynamicSchemaForIRRetrievalEntry": {},
@@ -88,10 +104,14 @@
     "App": 0,
     "btnColorMixer": 2,
     "Color Palette Screen": 0,
+    "ColorCircle": 12,
     "ColorMixer": 0,
     "comColorPalette": 0,
     "Host": 0,
     "lblColorMixerCode": 0,
+    "shpCircleAlt": 10,
+    "shpCircleMain": 9,
+    "shpCircleTer": 11,
     "txtColorMixerCode": 1
   },
   "ResourcesJsonIndices": {},
@@ -101,6 +121,9 @@
     "AnalysisLoadTime": 0.0856393,
     "ControlCount": {
       "6ee670762ec946bda43c70b82093dba0": 2,
+      "circle": 1,
+      "group": 1,
+      "partialCircle": 2,
       "screen": 1
     },
     "DeserializationLoadTime": 1.5202452

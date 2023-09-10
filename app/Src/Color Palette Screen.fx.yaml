@@ -130,3 +130,44 @@
         Y: =532
         ZIndex: =4
 
+    ColorCircle As group:
+        Height: =5
+        Width: =5
+        X: =-416
+        Y: =-194
+        ZIndex: =8
+
+        shpCircleMain As circle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =
+            FocusedBorderThickness: =1
+            Height: =200
+            Width: =200
+            X: =198
+            Y: =240
+            ZIndex: =5
+
+        shpCircleAlt As partialCircle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =Colorizer.Palette.alt.Color
+            FocusedBorderThickness: =1
+            Height: =200
+            Width: =200
+            X: =198
+            Y: =240
+            ZIndex: =6
+
+        shpCircleTer As partialCircle.quarterCircle:
+            BorderColor: =Color.Black
+            BorderThickness: =1
+            Fill: =Colorizer.Palette.ter.Color
+            FocusedBorderThickness: =1
+            Height: =200
+            Tooltip: ="Tertiary (Ter) Color"
+            Width: =200
+            X: =198
+            Y: =240
+            ZIndex: =7
+
