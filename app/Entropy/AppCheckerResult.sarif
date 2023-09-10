@@ -10,7 +10,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -22,7 +22,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -34,7 +34,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -46,7 +46,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -58,7 +58,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -70,7 +70,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -82,7 +82,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -94,7 +94,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -106,7 +106,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -118,7 +118,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -130,7 +130,7 @@
             {
               "associatedRule": {
                 "id": "app-InefficientDelayLoading",
-                "index": 3
+                "index": 4
               },
               "descriptor": {
                 "id": "app-InefficientDelayLoading"
@@ -143,6 +143,47 @@
         }
       ],
       "results": [
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Color Palette Screen'.shpCircleMain.Fill"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Color Palette Screen'.shpCircleMain.Fill",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 5,
+                  "charOffset": 17,
+                  "snippet": {
+                    "text": ".main"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Fill",
+                "module": "Color Palette Screen",
+                "type": "'Color Palette Screen'.shpCircleMain"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Color",
+              "Record"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
+          "ruleIndex": 0
+        },
         {
           "locations": [
             {
@@ -181,7 +222,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
+          "ruleIndex": 1
         },
         {
           "locations": [
@@ -218,7 +259,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 1
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -255,7 +296,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 1
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -292,7 +333,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 1
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -332,7 +373,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
+          "ruleIndex": 1
         },
         {
           "locations": [
@@ -369,7 +410,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 1
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -406,7 +447,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 1
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -443,7 +484,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 1
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -473,7 +514,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 2
+          "ruleIndex": 3
         }
       ],
       "tool": {
@@ -481,6 +522,23 @@
           "fullName": "PowerApps app checker",
           "name": "PowerApps app checker",
           "rules": [
+            {
+              "id": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
+              "messageStrings": {
+                "issue": {
+                  "text": "Expected {0} value."
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Change the rule to produce a {0} value."
+                ],
+                "level": "High",
+                "primaryCategory": "formula",
+                "whyFix": ""
+              }
+            },
             {
               "id": "app-ErrInvalidName",
               "messageStrings": {

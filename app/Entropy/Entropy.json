@@ -54,7 +54,7 @@
       "\"#c3c3c3ff\""
     ]
   },
-  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:16:10",
+  "HeaderLastSavedDateTimeUTC": "09/10/2023 15:23:47",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -104,14 +104,14 @@
     "App": 0,
     "btnColorMixer": 2,
     "Color Palette Screen": 0,
-    "ColorCircle": 12,
-    "ColorMixer": 0,
+    "ColorCircle": 6,
+    "ColorMixer": 7,
     "comColorPalette": 0,
     "Host": 0,
     "lblColorMixerCode": 0,
-    "shpCircleAlt": 10,
-    "shpCircleMain": 9,
-    "shpCircleTer": 11,
+    "shpCircleAlt": 4,
+    "shpCircleMain": 3,
+    "shpCircleTer": 5,
     "txtColorMixerCode": 1
   },
   "ResourcesJsonIndices": {},

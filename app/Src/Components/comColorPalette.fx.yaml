@@ -66,7 +66,7 @@ comColorPalette As CanvasComponent:
                     } );
                 
                 // If we have a HexColorCode, we use it.  If not, we generate a random color.
-                    Set( ColorMixerBase, If( IsBlank( HexColorCode), Self.RandomHexColor() ) );
+                    Set( ColorMixerBase, If( IsBlank( HexColorCode ) Or HexColorCode = "", Self.RandomHexColor(), HexColorCode ) );
                 
                 // Establish the Hexadecimal Value for each 4 colors.
                     Set( ColorMixerMainHex, Self.SanitizeHexCode( ColorMixerBase ) );
@@ -81,6 +81,8 @@ comColorPalette As CanvasComponent:
                         ter: Self.BuildPaletteColor( ColorMixerTerHex ),
                         back: Self.BuildPaletteColor( ColorMixerBackHex )
                     } );
+                
+                    Trace( "Color Palette Created", TraceSeverity.Information, ColorMixerPalette );
     HexToRGB(HexToConvert As String):
         HexToConvert:
             Default: |-

@@ -95,7 +95,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 8,
+    "BindingErrorCount": 9,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "Phone",

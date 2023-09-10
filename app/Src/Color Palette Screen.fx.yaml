@@ -6,6 +6,7 @@
         Color: =RGBA(26, 26, 26, 1)
         Fill: =RGBA(0, 0, 0, 0)
         Height: =41
+        OnSelect: =ColorMixer.Create( txtColorMixerCode.Text );
         RadiusBottomLeft: =2
         RadiusBottomRight: =2
         RadiusTopLeft: =2
@@ -100,7 +101,7 @@
                 } );
             
             // If we have a HexColorCode, we use it.  If not, we generate a random color.
-                Set( ColorMixerBase, If( IsBlank( HexColorCode), Self.RandomHexColor() ) );
+                Set( ColorMixerBase, If( IsBlank( HexColorCode ) Or HexColorCode = "", Self.RandomHexColor(), HexColorCode ) );
             
             // Establish the Hexadecimal Value for each 4 colors.
                 Set( ColorMixerMainHex, Self.SanitizeHexCode( ColorMixerBase ) );
@@ -115,6 +116,8 @@
                     ter: Self.BuildPaletteColor( ColorMixerTerHex ),
                     back: Self.BuildPaletteColor( ColorMixerBackHex )
                 } );
+            
+                Trace( "Color Palette Created", TraceSeverity.Information, ColorMixerPalette );
         HexToRGB: |-
             ={
                 R: Self.PrimaryHexToDec( Mid( HexToConvert, 2, 2 ) ),
@@ -140,7 +143,7 @@
         shpCircleMain As circle:
             BorderColor: =Color.Black
             BorderThickness: =1
-            Fill: =
+            Fill: =ColorMixer.Colors.main
             FocusedBorderThickness: =1
             Height: =200
             Width: =200

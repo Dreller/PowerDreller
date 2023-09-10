@@ -117,7 +117,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638299553713782293",
+    "LastModifiedTimestamp": "638299562265450176",
     "Name": "comColorPalette",
     "Rules": [
       {
@@ -230,7 +230,7 @@
       },
       {
         "Category": "Behavior",
-        "InvariantScript": "// HEX Reference Table\n    Set( ColorMixerHexTable, Table(\n        {Hex: \"1\", Dec: 1},\n        {Hex: \"2\", Dec: 2},\n        {Hex: \"3\", Dec: 3},\n        {Hex: \"4\", Dec: 4},\n        {Hex: \"5\", Dec: 5},\n        {Hex: \"6\", Dec: 6},\n        {Hex: \"7\", Dec: 7},\n        {Hex: \"8\", Dec: 8},\n        {Hex: \"9\", Dec: 9},\n        {Hex: \"A\", Dec: 10},\n        {Hex: \"B\", Dec: 11},\n        {Hex: \"C\", Dec: 12},\n        {Hex: \"D\", Dec: 13},\n        {Hex: \"E\", Dec: 14},\n        {Hex: \"F\", Dec: 15}\n    ) );\n\n// Other References\n    Set( ColorMixerConfig, {\n        Fading: {\n            Alternate: 0.35,\n            Tertiary: -0.27,\n            Back: 0.92\n        },\n        FontColor: {\n            Light: ColorValue( \"#FAFAFA\" ),\n            Dark: ColorValue( \"#141414\" )\n        },\n        Treshold: {\n            LightOrDark: 130\n        }\n    } );\n\n// If we have a HexColorCode, we use it.  If not, we generate a random color.\n    Set( ColorMixerBase, If( IsBlank( HexColorCode), Self.RandomHexColor() ) );\n\n// Establish the Hexadecimal Value for each 4 colors.\n    Set( ColorMixerMainHex, Self.SanitizeHexCode( ColorMixerBase ) );\n    Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );\n    Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );\n    Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );\n\n// Build the Palette\n    Set( ColorMixerPalette, {\n        main: Self.BuildPaletteColor( ColorMixerMainHex ),\n        alt: Self.BuildPaletteColor( ColorMixerAltHex ),\n        ter: Self.BuildPaletteColor( ColorMixerTerHex ),\n        back: Self.BuildPaletteColor( ColorMixerBackHex )\n    } );\n",
+        "InvariantScript": "// HEX Reference Table\n    Set( ColorMixerHexTable, Table(\n        {Hex: \"1\", Dec: 1},\n        {Hex: \"2\", Dec: 2},\n        {Hex: \"3\", Dec: 3},\n        {Hex: \"4\", Dec: 4},\n        {Hex: \"5\", Dec: 5},\n        {Hex: \"6\", Dec: 6},\n        {Hex: \"7\", Dec: 7},\n        {Hex: \"8\", Dec: 8},\n        {Hex: \"9\", Dec: 9},\n        {Hex: \"A\", Dec: 10},\n        {Hex: \"B\", Dec: 11},\n        {Hex: \"C\", Dec: 12},\n        {Hex: \"D\", Dec: 13},\n        {Hex: \"E\", Dec: 14},\n        {Hex: \"F\", Dec: 15}\n    ) );\n\n// Other References\n    Set( ColorMixerConfig, {\n        Fading: {\n            Alternate: 0.35,\n            Tertiary: -0.27,\n            Back: 0.92\n        },\n        FontColor: {\n            Light: ColorValue( \"#FAFAFA\" ),\n            Dark: ColorValue( \"#141414\" )\n        },\n        Treshold: {\n            LightOrDark: 130\n        }\n    } );\n\n// If we have a HexColorCode, we use it.  If not, we generate a random color.\n    Set( ColorMixerBase, If( IsBlank( HexColorCode ) Or HexColorCode = \"\", Self.RandomHexColor(), HexColorCode ) );\n\n// Establish the Hexadecimal Value for each 4 colors.\n    Set( ColorMixerMainHex, Self.SanitizeHexCode( ColorMixerBase ) );\n    Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );\n    Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );\n    Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );\n\n// Build the Palette\n    Set( ColorMixerPalette, {\n        main: Self.BuildPaletteColor( ColorMixerMainHex ),\n        alt: Self.BuildPaletteColor( ColorMixerAltHex ),\n        ter: Self.BuildPaletteColor( ColorMixerTerHex ),\n        back: Self.BuildPaletteColor( ColorMixerBackHex )\n    } );\n\n    Trace( \"Color Palette Created\", TraceSeverity.Information, ColorMixerPalette );\n",
         "Property": "Create",
         "RuleProviderType": "System"
       },
@@ -460,7 +460,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638299553713782293",
+  "LastModifiedTimestamp": "638299562265450176",
   "Name": "6ee670762ec946bda43c70b82093dba0",
   "OverridableProperties": {},
   "Version": "638299518756291539"
