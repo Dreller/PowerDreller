@@ -100,6 +100,35 @@
       },
       "Tooltip": "Primary (R, G, B) Hex Code to Dec Value.",
       "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Hex to RGB",
+      "Hidden": true,
+      "Name": "HexToRGB",
+      "PropertyDataTypeKey": "Record",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "4",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "HexToRGB_HexToConvert",
+            "Name": "HexToRGB_HexToConvert",
+            "PropertyDataTypeKey": "String",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "Hexadecimal Color Code to Convert to RGB Record.",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "HexToConvert"
+            },
+            "Tooltip": "Hexadecimal Color Code to Convert to RGB Record.",
+            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "Full Hexadecimal Color Code to RGB Record.",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"B\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"G\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"R\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]}}"
     }
   ],
   "FirstParty": true,
@@ -110,7 +139,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638299535374625511",
+  "LastModifiedTimestamp": "638299537716485941",
   "Name": "6ee670762ec946bda43c70b82093dba0",
   "OverridableProperties": {},
   "Version": "638299518756291539"
