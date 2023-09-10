@@ -7,6 +7,7 @@
         Height: =618
         HtmlText: ="<pre>" & PaletteAsJSON & "</pre>"
         Size: =9
+        Visible: =groupColorMixerVisual.Visible
         Width: =412
         X: =708
         Y: =15
