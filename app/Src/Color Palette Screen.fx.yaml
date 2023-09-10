@@ -9,8 +9,7 @@
         Text: =PaletteAsJSON
         VerticalAlign: =VerticalAlign.Top
         Width: =469
-        X: =664
-        Y: =7
+        X: =108
         ZIndex: =1
 
     btnColorMixer As button:
@@ -200,4 +199,15 @@
         X: =8
         Y: =532
         ZIndex: =5
+
+    htmColorMixerJSON As htmlViewer:
+        Color: =ColorMixer.Colors.back.Font
+        Fill: =ColorMixer.Colors.back.Color
+        Height: =618
+        HtmlText: ="<pre>" & PaletteAsJSON & "</pre>"
+        Size: =9
+        Width: =412
+        X: =708
+        Y: =15
+        ZIndex: =6
 
