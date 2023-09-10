@@ -101,7 +101,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638299790619960817",
+    "LastModifiedTimestamp": "638299793890325942",
     "Name": "comColorPalette",
     "Rules": [
       {
@@ -234,7 +234,7 @@
       "Name": "Create",
       "PropertyDataTypeKey": "Boolean",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "5",
+        "PropertyScopeRuleNamespaceKey": "6",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "Create_HexColorCode",
@@ -263,7 +263,7 @@
       "Name": "SanitizeHexCode",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "5",
+        "PropertyScopeRuleNamespaceKey": "6",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "SanitizeHexCode_DirtyHexCode",
@@ -292,7 +292,7 @@
       "Name": "PrimaryHexToDec",
       "PropertyDataTypeKey": "Number",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "5",
+        "PropertyScopeRuleNamespaceKey": "6",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "PrimaryHexToDec_PrimaryHexCode",
@@ -321,7 +321,7 @@
       "Name": "HexToRGB",
       "PropertyDataTypeKey": "Record",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "5",
+        "PropertyScopeRuleNamespaceKey": "6",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "HexToRGB_HexToConvert",
@@ -350,7 +350,7 @@
       "Name": "BrightnessLevel",
       "PropertyDataTypeKey": "Number",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "5",
+        "PropertyScopeRuleNamespaceKey": "6",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "BrightnessLevel_RGBRecord",
@@ -388,7 +388,7 @@
       "Name": "RandomHexColor",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "5",
+        "PropertyScopeRuleNamespaceKey": "6",
         "PropertyScopeRulesKey": []
       },
       "Tooltip": "Generate a Random Hexadecimal Color Code.",
@@ -403,7 +403,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638299790619960817",
+  "LastModifiedTimestamp": "638299793890325942",
   "Name": "6ee670762ec946bda43c70b82093dba0",
   "OverridableProperties": {},
   "Version": "638299518756291539"

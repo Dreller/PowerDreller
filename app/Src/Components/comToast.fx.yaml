@@ -10,9 +10,33 @@ comToast As CanvasComponent:
         Height: =165
         HtmlText: |-
             ="<svg viewBox='0 0 300 100' xmlns='http://www.w3.org/2000/svg'>
-                <rect width='290' height='80' x='3' y='3' style='fill: rgb(61,61,61);'>
-                    <animate attributeName='rx' values='0;20;0' dur='10s' repeatCount='indefinite' />
-                </rect>
+              <rect width='290' height='0' x='3' y='3' rx='5' style='fill: rgb(61, 61, 61)'>
+                <animate
+                  attributeName='height'
+                  values='0;80;80;0'
+                  keyTimes='0;0.1;0.9;1'
+                  dur='4s'
+                  repeatCount='1'
+                />
+              </rect>
+              <text
+                width='290'
+                height='0'
+                x='3'
+                y='30'
+                font-size='14'
+                font-family='Arial'
+                style='fill: rgb(255, 255, 0);'
+              >
+                Hello World
+                <animate
+                  attributeName='height'
+                  values='0;80;80;0'
+                  keyTimes='0;0.1;0.9;1'
+                  dur='4s'
+                  repeatCount='1'
+                />
+              </text>
             </svg>"
         Width: =450
         Y: =35

@@ -1,2 +1,6 @@
 Screen1 As screen:
 
+    comToast_1 As comToast:
+        X: =292
+        Y: =176
+
