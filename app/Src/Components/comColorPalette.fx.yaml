@@ -70,6 +70,14 @@ comColorPalette As CanvasComponent:
                     Set( ColorMixerAltHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Alternate ) ) ) );
                     Set( ColorMixerTerHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Tertiary ) ) ) );
                     Set( ColorMixerBackHex, Self.SanitizeHexCode( JSON( ColorFade( ColorValue( ColorMixerMainHex ), ColorMixerConfig.Fading.Back ) ) ) );
+                
+                // Build the Palette
+                    Set( ColorMixerPalette, {
+                        main: Self.BuildPaletteColor( ColorMixerMainHex ),
+                        alt: Self.BuildPaletteColor( ColorMixerAltHex ),
+                        ter: Self.BuildPaletteColor( ColorMixerTerHex ),
+                        back: Self.BuildPaletteColor( ColorMixerBackHex )
+                    } );
     HexToRGB(HexToConvert As String):
         HexToConvert:
             Default: |-
