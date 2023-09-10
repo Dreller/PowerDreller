@@ -242,3 +242,49 @@
         Y: =215
         ZIndex: =9
 
+    lblColorMain As Text:
+        DisplayMode: =DisplayMode.Edit
+        Height: =88
+        Text: |-
+            ="Main Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B & Char(10)  & "This is a " & ColorMixer.Colors.main.Shade & " Color."
+        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+        Width: =181
+        X: =424
+        Y: =190
+        ZIndex: =10
+
+    lblColorMain_1 As Text:
+        DisplayMode: =DisplayMode.Edit
+        Height: =88
+        Text: |-
+            ="Background Color: " & ColorMixer.Colors.main.Hex & Char(10) & "RGB: " & ColorMixer.Colors.main.Dec.R & ", " & ColorMixer.Colors.main.Dec.G & ", " & ColorMixer.Colors.main.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.main.Shade & " Color."
+        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+        Width: =201
+        X: =401
+        Y: =486
+        ZIndex: =11
+
+    lblColorAlternate As Text:
+        Align: ='TextCanvas.Align'.End
+        DisplayMode: =DisplayMode.Edit
+        Height: =110
+        Text: |-
+            ="Alternate Color: " & ColorMixer.Colors.alt.Hex & Char(10) & "RGB: " & ColorMixer.Colors.alt.Dec.R & ", " & ColorMixer.Colors.alt.Dec.G & ", " & ColorMixer.Colors.alt.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.alt.Shade & " Color."
+        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+        Width: =212
+        X: =28
+        Y: =376
+        ZIndex: =12
+
+    lblColorTertiary As Text:
+        Align: ='TextCanvas.Align'.End
+        DisplayMode: =DisplayMode.Edit
+        Height: =107
+        Text: |-
+            ="Tertiary Color: " & ColorMixer.Colors.ter.Hex & Char(10) & "RGB: " & ColorMixer.Colors.ter.Dec.R & ", " & ColorMixer.Colors.ter.Dec.G & ", " & ColorMixer.Colors.ter.Dec.B & Char(10) & "This is a " & ColorMixer.Colors.ter.Shade & " Color."
+        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+        Width: =185
+        X: =41
+        Y: =156
+        ZIndex: =13
+
